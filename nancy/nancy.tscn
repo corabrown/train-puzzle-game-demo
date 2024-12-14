@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcb7o5gwntpur"]
+
+[ext_resource type="Script" path="res://nancy/nancy.gd" id="1_y3idf"]
+[ext_resource type="Script" path="res://nancy/smooth_camera.gd" id="2_hlvjf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_psf3g"]
+radius = 0.14
+height = 1.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xgps3"]
+radius = 0.14
+height = 1.5
+
+[node name="Nancy" type="CharacterBody3D"]
+script = ExtResource("1_y3idf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+mesh = SubResource("CapsuleMesh_psf3g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CapsuleShape3D_xgps3")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="SmoothCamera" type="Camera3D" parent="CameraPivot"]
+script = ExtResource("2_hlvjf")

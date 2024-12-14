@@ -1,0 +1,88 @@
+[gd_scene load_steps=2 format=3 uid="uid://don8o7pvup016"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wccts"]
+albedo_color = Color(0.486275, 0.188235, 0.188235, 1)
+
+[node name="TrainCar" type="Node3D"]
+
+[node name="Car" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+material_override = SubResource("StandardMaterial3D_wccts")
+use_collision = true
+flip_faces = true
+size = Vector3(4, 4, 25)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Car"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.585912, 0, 0)
+operation = 2
+
+[node name="Window" type="CSGBox3D" parent="Car/CSGCombiner3D"]
+auto_translate_mode = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.5, 0)
+calculate_tangents = false
+size = Vector3(0.2, 1.8, 2)
+
+[node name="Window2" type="CSGBox3D" parent="Car/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.5, 3)
+calculate_tangents = false
+size = Vector3(0.2, 1.8, 2)
+
+[node name="Window3" type="CSGBox3D" parent="Car/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.5, 6)
+calculate_tangents = false
+size = Vector3(0.2, 1.8, 2)
+
+[node name="Window4" type="CSGBox3D" parent="Car/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.5, 9)
+calculate_tangents = false
+size = Vector3(0.2, 1.8, 2)
+
+[node name="Window5" type="CSGBox3D" parent="Car/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.5, -3)
+calculate_tangents = false
+size = Vector3(0.2, 1.8, 2)
+
+[node name="Window6" type="CSGBox3D" parent="Car/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.5, -6)
+calculate_tangents = false
+size = Vector3(0.2, 1.8, 2)
+
+[node name="Window7" type="CSGBox3D" parent="Car/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.5, -9)
+calculate_tangents = false
+size = Vector3(0.2, 1.8, 2)
+
+[node name="Window8" type="CSGBox3D" parent="Car/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68, 0.5, 0)
+calculate_tangents = false
+size = Vector3(0.2, 1.8, 2)
+
+[node name="Window9" type="CSGBox3D" parent="Car/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68, 0.5, 3)
+calculate_tangents = false
+size = Vector3(0.2, 1.8, 2)
+
+[node name="Window10" type="CSGBox3D" parent="Car/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68, 0.5, 6)
+calculate_tangents = false
+size = Vector3(0.2, 1.8, 2)
+
+[node name="Window11" type="CSGBox3D" parent="Car/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68, 0.5, 9)
+calculate_tangents = false
+size = Vector3(0.2, 1.8, 2)
+
+[node name="Window12" type="CSGBox3D" parent="Car/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68, 0.5, -3)
+calculate_tangents = false
+size = Vector3(0.2, 1.8, 2)
+
+[node name="Window13" type="CSGBox3D" parent="Car/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68, 0.5, -6)
+calculate_tangents = false
+size = Vector3(0.2, 1.8, 2)
+
+[node name="Window14" type="CSGBox3D" parent="Car/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68, 0.5, -9)
+calculate_tangents = false
+size = Vector3(0.2, 1.8, 2)

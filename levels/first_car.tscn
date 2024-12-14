@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg5qjy4xioxcw"]
+
+[ext_resource type="PackedScene" uid="uid://don8o7pvup016" path="res://car/train_car.tscn" id="1_vni3t"]
+[ext_resource type="PackedScene" uid="uid://dcb7o5gwntpur" path="res://nancy/nancy.tscn" id="2_f0r6r"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_14bsr"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_bds46"]
+sky_material = SubResource("ProceduralSkyMaterial_14bsr")
+
+[sub_resource type="Environment" id="Environment_47bwg"]
+background_mode = 2
+sky = SubResource("Sky_bds46")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="FirstCar" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_47bwg")
+
+[node name="Nancy" parent="." instance=ExtResource("2_f0r6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.4634)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.70668, 0)
+
+[node name="TrainCar" parent="." instance=ExtResource("1_vni3t")]
