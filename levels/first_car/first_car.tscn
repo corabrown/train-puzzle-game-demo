@@ -21,9 +21,9 @@ backlight = Color(1, 1, 1, 1)
 [node name="FirstCar" instance=ExtResource("1_q1ri7")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="TrainCar/Lights" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
 light_color = Color(1, 1, 0.815686, 1)
-light_energy = 0.4
+light_energy = 0.1
 
 [node name="Furniture" type="Node3D" parent="TrainCar" index="3"]
 
