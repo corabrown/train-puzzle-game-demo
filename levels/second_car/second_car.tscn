@@ -1,0 +1,156 @@
+[gd_scene load_steps=14 format=3 uid="uid://u87f226r7x1t"]
+
+[ext_resource type="PackedScene" uid="uid://dg5qjy4xioxcw" path="res://levels/level.tscn" id="1_7s54i"]
+[ext_resource type="PackedScene" uid="uid://b87dkbqmbvfb5" path="res://levels/first_car/first_car.tscn" id="2_xicko"]
+[ext_resource type="PackedScene" uid="uid://bi1oo8pgoav0w" path="res://assets/furniture/Rectangle Table.fbx" id="3_j1hlx"]
+[ext_resource type="PackedScene" uid="uid://cigvowi3h32du" path="res://assets/furniture/Table.fbx" id="4_23o8x"]
+[ext_resource type="PackedScene" uid="uid://c22ta51xedevk" path="res://assets/furniture/Standart Chair.fbx" id="5_ii78p"]
+[ext_resource type="PackedScene" uid="uid://ch7wnhvbqsbdi" path="res://assets/food/cup-coffee.glb" id="6_py6a7"]
+[ext_resource type="Script" path="res://levels/second_car/puzzle.gd" id="6_s7dy2"]
+[ext_resource type="PackedScene" uid="uid://cx40pitujpdt2" path="res://assets/food/cup-tea.glb" id="7_4f573"]
+[ext_resource type="PackedScene" uid="uid://0fqjbfihxj6c" path="res://assets/food/frappe.glb" id="8_4kipd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ptmcx"]
+size = Vector3(2.1571, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mcm0c"]
+radius = 0.2
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5uk67"]
+radius = 0.2
+height = 1.8
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ali1"]
+size = Vector3(4.13257, 3.27368, 3.40424)
+
+[node name="SecondCar" instance=ExtResource("1_7s54i")]
+previous_scene = ExtResource("2_xicko")
+
+[node name="Nancy" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.5072)
+
+[node name="Furniture" type="Node3D" parent="TrainCar" index="3"]
+
+[node name="Rectangle Table4" parent="TrainCar/Furniture" index="0" instance=ExtResource("3_j1hlx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.33025, 0.467, 11.2813)
+
+[node name="Rectangle Table2" parent="TrainCar/Furniture" index="1" instance=ExtResource("3_j1hlx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.33025, 0.467, 9.00038)
+
+[node name="Table" parent="TrainCar/Furniture" index="2" instance=ExtResource("4_23o8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10401, 0.497539, 0.0613198)
+
+[node name="Table4" parent="TrainCar/Furniture" index="3" instance=ExtResource("4_23o8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10401, 0.497539, 4.52811)
+
+[node name="Table2" parent="TrainCar/Furniture" index="4" instance=ExtResource("4_23o8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10401, 0.497539, -4.54828)
+
+[node name="Table3" parent="TrainCar/Furniture" index="5" instance=ExtResource("4_23o8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10401, 0.497539, -9.03695)
+
+[node name="Standart Chair" parent="TrainCar/Furniture" index="6" instance=ExtResource("5_ii78p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12327, 0.696113, -0.939525)
+
+[node name="Standart Chair3" parent="TrainCar/Furniture" index="7" instance=ExtResource("5_ii78p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12327, 0.696113, -5.56699)
+
+[node name="Standart Chair4" parent="TrainCar/Furniture" index="8" instance=ExtResource("5_ii78p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12327, 0.696113, -10.0914)
+
+[node name="Standart Chair5" parent="TrainCar/Furniture" index="9" instance=ExtResource("5_ii78p")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.12327, 0.696113, -8.01817)
+
+[node name="Standart Chair6" parent="TrainCar/Furniture" index="10" instance=ExtResource("5_ii78p")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.12327, 0.696113, -3.54032)
+
+[node name="Standart Chair7" parent="TrainCar/Furniture" index="11" instance=ExtResource("5_ii78p")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.12327, 0.696113, 1.05509)
+
+[node name="Standart Chair8" parent="TrainCar/Furniture" index="12" instance=ExtResource("5_ii78p")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.12327, 0.696113, 5.54362)
+
+[node name="Standart Chair2" parent="TrainCar/Furniture" index="13" instance=ExtResource("5_ii78p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12327, 0.696113, 3.50626)
+
+[node name="Puzzle" parent="." index="4"]
+script = ExtResource("6_s7dy2")
+
+[node name="Food" type="Node3D" parent="Puzzle" index="0"]
+
+[node name="Coffee" parent="Puzzle/Food" index="0" instance=ExtResource("6_py6a7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34147, 0.881526, 9.52304)
+
+[node name="CoffeeArea" type="Area3D" parent="Puzzle/Food/Coffee" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Puzzle/Food/Coffee/CoffeeArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.578552, 0, 0)
+shape = SubResource("BoxShape3D_ptmcx")
+
+[node name="CoffeePickup" type="Label3D" parent="Puzzle/Food/Coffee/CoffeeArea" index="1"]
+transform = Transform3D(0.0184645, 0, 0.99983, 0, 1, 0, -0.99983, 0, 0.0184645, 0, 0.508558, 0)
+visible = false
+text = "F to pick up"
+
+[node name="Tea" parent="Puzzle/Food" index="1" instance=ExtResource("7_4f573")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2889, 0.877797, 8.31434)
+
+[node name="TeaArea" type="Area3D" parent="Puzzle/Food/Tea" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052569, 0.00372863, 0.0941668)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Puzzle/Food/Tea/TeaArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.578552, 0, 0)
+shape = SubResource("BoxShape3D_ptmcx")
+
+[node name="TeaPickup" type="Label3D" parent="Puzzle/Food/Tea/TeaArea" index="1"]
+transform = Transform3D(0.0184645, 0, 0.99983, 0, 1, 0, -0.99983, 0, 0.0184645, 0, 0.508558, -0.0227623)
+visible = false
+text = "F to pick up"
+
+[node name="Frappe" parent="Puzzle/Food" index="2" instance=ExtResource("8_4kipd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27021, 0.875812, 10.6639)
+
+[node name="FrappeArea" type="Area3D" parent="Puzzle/Food/Frappe" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0712597, 0.00571364, -0.0280409)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Puzzle/Food/Frappe/FrappeArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.578552, 0, 0)
+shape = SubResource("BoxShape3D_ptmcx")
+
+[node name="FrappePickup" type="Label3D" parent="Puzzle/Food/Frappe/FrappeArea" index="1"]
+transform = Transform3D(0.0184645, 0, 0.99983, 0, 1, 0, -0.99983, 0, 0.0184645, 0, 0.508558, 0.0633039)
+visible = false
+text = "F to pick up"
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Puzzle" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, -11.7134)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Puzzle/CharacterBody3D" index="0"]
+mesh = SubResource("CapsuleMesh_mcm0c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Puzzle/CharacterBody3D" index="1"]
+shape = SubResource("CapsuleShape3D_5uk67")
+
+[node name="PuzzleArea" type="Area3D" parent="Puzzle" index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Puzzle/PuzzleArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0579834, 1.68658, -10.3354)
+shape = SubResource("BoxShape3D_2ali1")
+
+[node name="Instructions" type="Label3D" parent="Puzzle" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0430512, 2.25646, -12.1721)
+visible = false
+text = "I'll let you through 
+if you get me a cup of coffee. Black"
+
+[connection signal="body_entered" from="Puzzle/Food/Coffee/CoffeeArea" to="Puzzle" method="_on_coffee_area_body_entered"]
+[connection signal="body_exited" from="Puzzle/Food/Coffee/CoffeeArea" to="Puzzle" method="_on_coffee_area_body_exited"]
+[connection signal="body_entered" from="Puzzle/Food/Tea/TeaArea" to="Puzzle" method="_on_tea_area_body_entered"]
+[connection signal="body_exited" from="Puzzle/Food/Tea/TeaArea" to="Puzzle" method="_on_tea_area_body_exited"]
+[connection signal="body_entered" from="Puzzle/Food/Frappe/FrappeArea" to="Puzzle" method="_on_frappe_area_body_entered"]
+[connection signal="body_exited" from="Puzzle/Food/Frappe/FrappeArea" to="Puzzle" method="_on_frappe_area_body_exited"]
+[connection signal="body_entered" from="Puzzle/PuzzleArea" to="Puzzle" method="_on_puzzle_area_body_entered"]
+[connection signal="body_exited" from="Puzzle/PuzzleArea" to="Puzzle" method="_on_puzzle_area_body_exited"]
+
+[editable path="TrainCar"]

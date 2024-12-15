@@ -7,7 +7,7 @@ extends Node3D
 @onready var second_label_3d: Label3D = $Password/SecondNumber/Label3D
 @onready var third_label_3d: Label3D = $Password/ThirdNumber/Label3D
 @onready var password: Node3D = $Password
-@onready var corridor: CSGBox3D = $"../TrainCar/Car/Corridor"
+@onready var corridor: CSGBox3D = $"../TrainCar/Car/NextCorridor"
 
 var first_label_3d_text := 0 
 var in_puzzle_zone := false
@@ -17,7 +17,7 @@ var selected_index: int = 0
 var current_password := [0, 0, 0]
 @onready var numbers := [first_number, second_number, third_number]
 
-var answer = [6, 4, 8]
+var answer = [6,4,8]
 
 
 func _ready() -> void:
@@ -47,15 +47,13 @@ func _input(event: InputEvent):
 			set_backlight()
 			
 		if event.is_action_pressed("arrow_left"):
-			selected_index = (selected_index - 1) % 3
+			selected_index = (selected_index - 1 + 3) % 3
 			set_backlight()
 			
 
 func set_backlight():
 	for index in numbers.size():
-		print(index)
 		if index == selected_index:
-			print(numbers[index].material)
 			numbers[index].material.backlight_enabled = true
 		else: 
 			numbers[index].material.backlight_enabled = false 

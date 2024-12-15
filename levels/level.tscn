@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dg5qjy4xioxcw"]
+[gd_scene load_steps=8 format=3 uid="uid://dg5qjy4xioxcw"]
 
+[ext_resource type="Script" path="res://levels/level.gd" id="1_0lrjb"]
 [ext_resource type="PackedScene" uid="uid://don8o7pvup016" path="res://car/train_car.tscn" id="1_c7t4j"]
 [ext_resource type="PackedScene" uid="uid://dcb7o5gwntpur" path="res://nancy/nancy.tscn" id="2_37kn7"]
-[ext_resource type="Script" path="res://levels/first_car/puzzle.gd" id="4_osprd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_14bsr"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -17,7 +17,11 @@ sky = SubResource("Sky_bds46")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_apqho"]
+size = Vector3(2.09473, 3.89954, 1)
+
 [node name="Level" type="Node3D"]
+script = ExtResource("1_0lrjb")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -31,7 +35,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11)
 
 [node name="TrainCar" parent="." instance=ExtResource("1_c7t4j")]
 
+[node name="NextCorridor" parent="TrainCar/Car" index="1"]
+visible = true
+
+[node name="NextCorridorTransition" type="Area3D" parent="TrainCar/Car/NextCorridor" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrainCar/Car/NextCorridor/NextCorridorTransition"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0219727, -0.0194702, 0)
+shape = SubResource("BoxShape3D_apqho")
+
+[node name="NancyReturnPosition" type="Marker3D" parent="TrainCar/Car/NextCorridor" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.917679)
+
+[node name="PreviousCorridor" parent="TrainCar/Car" index="2"]
+visible = true
+
+[node name="PreviousCorridorTransition" type="Area3D" parent="TrainCar/Car/PreviousCorridor" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrainCar/Car/PreviousCorridor/PreviousCorridorTransition"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0219727, -0.0194702, 0.290627)
+shape = SubResource("BoxShape3D_apqho")
+
 [node name="Puzzle" type="Node3D" parent="."]
-script = ExtResource("4_osprd")
+
+[connection signal="body_entered" from="TrainCar/Car/NextCorridor/NextCorridorTransition" to="." method="_on_next_corridor_transition_body_entered"]
+[connection signal="body_entered" from="TrainCar/Car/PreviousCorridor/PreviousCorridorTransition" to="." method="_on_previous_corridor_transition_body_entered"]
 
 [editable path="TrainCar"]
