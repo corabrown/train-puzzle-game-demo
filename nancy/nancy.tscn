@@ -26,4 +26,29 @@ shape = SubResource("CapsuleShape3D_xgps3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="SmoothCamera" type="Camera3D" parent="CameraPivot"]
+current = true
 script = ExtResource("2_hlvjf")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Left" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 100.0
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="mouse_entered" from="Control/Left" to="." method="_on_margin_container_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Left" to="." method="_on_margin_container_mouse_exited"]
