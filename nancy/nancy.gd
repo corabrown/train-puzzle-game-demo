@@ -1,11 +1,11 @@
 extends CharacterBody3D
+class_name Nancy
 
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var smooth_camera: Camera3D = $CameraPivot/SmoothCamera
 @onready var smooth_camera_fov = smooth_camera.fov
-@onready var control: Control = $Control
 
-const SPEED = 1000.0
+const SPEED = 8.0
 const JUMP_VELOCITY = 4.5
 var mouse_motion = Vector2.ZERO
 const step_travel_distance = 100
@@ -20,8 +20,8 @@ var cursor_image := {
 }
 @onready var current_cursor_type = cursor_type.FORWARD
 
-#func _ready() -> void: 
-	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+func _ready() -> void: 
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 func _process(delta: float) -> void:
 	smooth_camera.fov = lerp(
@@ -30,43 +30,29 @@ func _process(delta: float) -> void:
 		delta * 30.0
 		)
 		
-	control.set_default_cursor_shape(current_cursor_type)
+
+func _physics_process(delta: float) -> void:
+	handle_camera_rotation()
 	
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
 
+	# Handle jump.
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
 
-
-
-func _physics_process(_delta: float) -> void:
-	#handle_camera_rotation()
-	
-	## Add the gravity.
-	#if not is_on_floor():
-		#velocity += get_gravity() * delta
-#
-	## Handle jump.
-	#if Input.is_action_just_pressed("jump") and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
-#
-	## Get the input direction and handle the movement/deceleration.
-	## As good practice, you should replace UI actions with custom gameplay actions.
-	#var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
-	#var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	#if direction:
-		#velocity.x = direction.x * SPEED
-		#velocity.z = direction.z * SPEED
-	#else:
-		#velocity.x = move_toward(velocity.x, 0, SPEED)
-	#velocity.z = move_toward(velocity.z, 0, SPEED)
-		
-	if Input.is_action_just_pressed("click"):
-		if current_cursor_type == cursor_type.FORWARD:
-			velocity = -global_transform.basis.z * step_travel_distance
-		if current_cursor_type == cursor_type.LEFT:
-			rotation_degrees.y = 90 
-			
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
 	else:
-		velocity = Vector3.ZERO
-
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+		
 	move_and_slide()
 
 
@@ -87,11 +73,3 @@ func handle_camera_rotation() -> void:
 		90.0,
 	)
 	mouse_motion = Vector2.ZERO
-
-
-func _on_margin_container_mouse_entered() -> void:
-	current_cursor_type = cursor_type.LEFT
-
-func _on_margin_container_mouse_exited() -> void:
-	current_cursor_type = cursor_type.FORWARD
-	

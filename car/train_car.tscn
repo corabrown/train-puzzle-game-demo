@@ -1,16 +1,44 @@
-[gd_scene load_steps=2 format=3 uid="uid://don8o7pvup016"]
+[gd_scene load_steps=4 format=3 uid="uid://don8o7pvup016"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wccts"]
 albedo_color = Color(0.486275, 0.188235, 0.188235, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qeu7t"]
+albedo_color = Color(0.396078, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lr0x4"]
+albedo_color = Color(0.184314, 0.0352941, 0.0352941, 1)
+
 [node name="TrainCar" type="Node3D"]
+
+[node name="Lights" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.81228, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+light_color = Color(1, 1, 0.803922, 1)
+light_energy = 5.0
+shadow_enabled = true
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.39018)
+light_color = Color(1, 1, 0.803922, 1)
+light_energy = 5.0
+shadow_enabled = true
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.33182)
+light_color = Color(1, 1, 0.803922, 1)
+light_energy = 5.0
+shadow_enabled = true
 
 [node name="Car" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 material_override = SubResource("StandardMaterial3D_wccts")
+cast_shadow = 0
 use_collision = true
 flip_faces = true
 size = Vector3(4, 4, 25)
+material = SubResource("StandardMaterial3D_qeu7t")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="Car"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.585912, 0, 0)
@@ -19,6 +47,7 @@ operation = 2
 [node name="Window" type="CSGBox3D" parent="Car/CSGCombiner3D"]
 auto_translate_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.5, 0)
+cast_shadow = 0
 calculate_tangents = false
 size = Vector3(0.2, 1.8, 2)
 
@@ -86,3 +115,13 @@ size = Vector3(0.2, 1.8, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68, 0.5, -9)
 calculate_tangents = false
 size = Vector3(0.2, 1.8, 2)
+
+[node name="Corridor" type="CSGBox3D" parent="Car"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014088, 0, -14.3854)
+visible = false
+flip_faces = true
+size = Vector3(2, 4, 4)
+
+[node name="Floor" type="CSGBox3D" parent="."]
+size = Vector3(4, 0.1, 25)
+material = SubResource("StandardMaterial3D_lr0x4")
