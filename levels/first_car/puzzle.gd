@@ -32,6 +32,7 @@ func _process(_delta: float) -> void:
 	if current_password == answer:
 		password.visible = false 
 		corridor.visible = true 
+		
 
 func _input(event: InputEvent):
 	

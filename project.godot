@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="train"
-run/main_scene="res://levels/first_car/first_car.tscn"
+run/main_scene="res://levels/full_train.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 

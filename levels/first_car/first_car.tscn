@@ -1,10 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b87dkbqmbvfb5"]
+[gd_scene load_steps=8 format=3 uid="uid://b87dkbqmbvfb5"]
 
-[ext_resource type="PackedScene" uid="uid://dg5qjy4xioxcw" path="res://levels/level.tscn" id="1_q1ri7"]
-[ext_resource type="Script" path="res://levels/first_car/first_car.gd" id="2_7pr26"]
 [ext_resource type="PackedScene" uid="uid://jqshckbe3a4x" path="res://assets/furniture/Armchair.fbx" id="2_qkxsn"]
 [ext_resource type="Script" path="res://levels/first_car/puzzle.gd" id="3_1fbn6"]
-[ext_resource type="PackedScene" uid="uid://u87f226r7x1t" path="res://levels/second_car/second_car.tscn" id="3_qdbu0"]
+[ext_resource type="PackedScene" uid="uid://don8o7pvup016" path="res://car/train_car.tscn" id="3_qdbu0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_481pl"]
 size = Vector3(6, 4, 5)
@@ -21,127 +19,122 @@ backlight = Color(1, 1, 1, 1)
 albedo_color = Color(1, 1, 0, 1)
 backlight = Color(1, 1, 1, 1)
 
-[node name="FirstCar" instance=ExtResource("1_q1ri7")]
-script = ExtResource("2_7pr26")
-next_scene = ExtResource("3_qdbu0")
+[node name="FirstCar" type="Node3D" groups=["train_car"]]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="TrainCar/Lights" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
-light_color = Color(1, 1, 0.815686, 1)
-light_energy = 0.1
+[node name="TrainCar" parent="." instance=ExtResource("3_qdbu0")]
 
-[node name="NextCorridor" parent="TrainCar/Car" index="1"]
-visible = false
+[node name="Furniture" type="Node3D" parent="TrainCar"]
 
-[node name="Furniture" type="Node3D" parent="TrainCar" index="3"]
-
-[node name="Armchair" parent="TrainCar/Furniture" index="0" instance=ExtResource("2_qkxsn")]
+[node name="Armchair" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.7, -8)
 
-[node name="Armchair2" parent="TrainCar/Furniture" index="1" instance=ExtResource("2_qkxsn")]
+[node name="Armchair2" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.7, -5)
 
-[node name="Armchair3" parent="TrainCar/Furniture" index="2" instance=ExtResource("2_qkxsn")]
+[node name="Armchair3" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.7, -1)
 
-[node name="Armchair4" parent="TrainCar/Furniture" index="3" instance=ExtResource("2_qkxsn")]
+[node name="Armchair4" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.7, 2)
 
-[node name="Armchair5" parent="TrainCar/Furniture" index="4" instance=ExtResource("2_qkxsn")]
+[node name="Armchair5" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.7, 5)
 
-[node name="Armchair6" parent="TrainCar/Furniture" index="5" instance=ExtResource("2_qkxsn")]
+[node name="Armchair6" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.7, 8)
 
-[node name="Armchair7" parent="TrainCar/Furniture" index="6" instance=ExtResource("2_qkxsn")]
+[node name="Armchair7" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.7, -8)
 
-[node name="Armchair8" parent="TrainCar/Furniture" index="7" instance=ExtResource("2_qkxsn")]
+[node name="Armchair8" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.7, -5)
 
-[node name="Armchair9" parent="TrainCar/Furniture" index="8" instance=ExtResource("2_qkxsn")]
+[node name="Armchair9" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.7, -1)
 
-[node name="Armchair10" parent="TrainCar/Furniture" index="9" instance=ExtResource("2_qkxsn")]
+[node name="Armchair10" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.7, 2)
 
-[node name="Armchair11" parent="TrainCar/Furniture" index="10" instance=ExtResource("2_qkxsn")]
+[node name="Armchair11" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.7, 5)
 
-[node name="Armchair12" parent="TrainCar/Furniture" index="11" instance=ExtResource("2_qkxsn")]
+[node name="Armchair12" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.7, 8)
 
-[node name="Armchair13" parent="TrainCar/Furniture" index="12" instance=ExtResource("2_qkxsn")]
+[node name="Armchair13" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.7, -8)
 
-[node name="Armchair14" parent="TrainCar/Furniture" index="13" instance=ExtResource("2_qkxsn")]
+[node name="Armchair14" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.7, -5)
 
-[node name="Armchair15" parent="TrainCar/Furniture" index="14" instance=ExtResource("2_qkxsn")]
+[node name="Armchair15" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.7, -1)
 
-[node name="Armchair16" parent="TrainCar/Furniture" index="15" instance=ExtResource("2_qkxsn")]
+[node name="Armchair16" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.7, 2)
 
-[node name="Armchair17" parent="TrainCar/Furniture" index="16" instance=ExtResource("2_qkxsn")]
+[node name="Armchair17" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.7, 5)
 
-[node name="Armchair18" parent="TrainCar/Furniture" index="17" instance=ExtResource("2_qkxsn")]
+[node name="Armchair18" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.7, 8)
 
-[node name="Puzzle" parent="." index="4"]
+[node name="Puzzle" type="Node3D" parent="."]
 script = ExtResource("3_1fbn6")
 
-[node name="Instructions" type="Label3D" parent="Puzzle" index="0"]
+[node name="Instructions" type="Label3D" parent="Puzzle"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4, -12)
 text = "Use Arrow Keys to Update"
 font_size = 64
 
-[node name="PuzzleArea" type="Area3D" parent="Puzzle" index="1"]
+[node name="PuzzleArea" type="Area3D" parent="Puzzle"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Puzzle/PuzzleArea" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Puzzle/PuzzleArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.5, 2)
 shape = SubResource("BoxShape3D_481pl")
 
-[node name="Password" type="Node3D" parent="Puzzle" index="2"]
+[node name="Password" type="Node3D" parent="Puzzle"]
 
-[node name="FirstNumber" type="CSGBox3D" parent="Puzzle/Password" index="0"]
+[node name="FirstNumber" type="CSGBox3D" parent="Puzzle/Password"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -12.4)
+cast_shadow = 0
 size = Vector3(0.7, 1, 0.1)
 material = SubResource("StandardMaterial3D_cmx5b")
 
-[node name="Label3D" type="Label3D" parent="Puzzle/Password/FirstNumber" index="0"]
+[node name="Label3D" type="Label3D" parent="Puzzle/Password/FirstNumber"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 outline_modulate = Color(1, 1, 1, 1)
 text = "0"
 font_size = 100
 
-[node name="SecondNumber" type="CSGBox3D" parent="Puzzle/Password" index="1"]
+[node name="SecondNumber" type="CSGBox3D" parent="Puzzle/Password"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -12.4)
+cast_shadow = 0
 size = Vector3(0.7, 1, 0.1)
 material = SubResource("StandardMaterial3D_1hkn8")
 
-[node name="Label3D" type="Label3D" parent="Puzzle/Password/SecondNumber" index="0"]
+[node name="Label3D" type="Label3D" parent="Puzzle/Password/SecondNumber"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 outline_modulate = Color(1, 1, 1, 1)
 text = "0"
 font_size = 100
 
-[node name="ThirdNumber" type="CSGBox3D" parent="Puzzle/Password" index="2"]
+[node name="ThirdNumber" type="CSGBox3D" parent="Puzzle/Password"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -12.4)
+cast_shadow = 0
 size = Vector3(0.7, 1, 0.1)
 material = SubResource("StandardMaterial3D_gnnid")
 
-[node name="Label3D" type="Label3D" parent="Puzzle/Password/ThirdNumber" index="0"]
+[node name="Label3D" type="Label3D" parent="Puzzle/Password/ThirdNumber"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 outline_modulate = Color(1, 1, 1, 1)
 text = "0"
 font_size = 100
 
-[node name="Solution" type="Node3D" parent="Puzzle/Password" index="3"]
+[node name="Solution" type="Node3D" parent="Puzzle/Password"]
 
-[node name="FirstNumber" type="Label3D" parent="Puzzle/Password/Solution" index="0"]
+[node name="FirstNumber" type="Label3D" parent="Puzzle/Password/Solution"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.4, 1, -1.5)
 modulate = Color(0, 1, 1, 1)
 outline_modulate = Color(0, 1, 1, 0)
@@ -149,7 +142,7 @@ text = "6
 "
 font_size = 50
 
-[node name="SecondNumber" type="Label3D" parent="Puzzle/Password/Solution" index="1"]
+[node name="SecondNumber" type="Label3D" parent="Puzzle/Password/Solution"]
 transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0.6, 0.1, 10.5)
 modulate = Color(1, 0, 1, 1)
 outline_modulate = Color(0, 1, 1, 0)
@@ -157,7 +150,7 @@ text = "4
 "
 font_size = 160
 
-[node name="ThirdNumber" type="Label3D" parent="Puzzle/Password/Solution" index="2"]
+[node name="ThirdNumber" type="Label3D" parent="Puzzle/Password/Solution"]
 transform = Transform3D(1.31134e-07, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 1, -4.37114e-08, 1.31134e-07, 1.99, 2.1, 4.5)
 modulate = Color(1, 1, 0, 1)
 outline_modulate = Color(0, 1, 1, 0)

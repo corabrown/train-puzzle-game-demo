@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://don8o7pvup016"]
+[gd_scene load_steps=5 format=3 uid="uid://don8o7pvup016"]
+
+[ext_resource type="Script" path="res://car/train_car.gd" id="1_1oyov"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wccts"]
 albedo_color = Color(0.486275, 0.188235, 0.188235, 1)
@@ -10,6 +12,7 @@ albedo_color = Color(0.396078, 0, 0, 1)
 albedo_color = Color(0.184314, 0.0352941, 0.0352941, 1)
 
 [node name="TrainCar" type="Node3D"]
+script = ExtResource("1_1oyov")
 
 [node name="Lights" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.81228, 0)
@@ -117,14 +120,8 @@ calculate_tangents = false
 size = Vector3(0.2, 1.8, 2)
 
 [node name="NextCorridor" type="CSGBox3D" parent="Car"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014088, 0, -14.3854)
-visible = false
-flip_faces = true
-size = Vector3(2, 4, 4)
-
-[node name="PreviousCorridor" type="CSGBox3D" parent="Car"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014088, 0, 14.4532)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014088, 0, -14.4356)
+calculate_tangents = false
 flip_faces = true
 size = Vector3(2, 4, 4)
 

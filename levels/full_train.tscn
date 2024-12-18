@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbrknbrdgmkee"]
+
+[ext_resource type="Script" path="res://levels/full_train.gd" id="1_8jwfv"]
+[ext_resource type="PackedScene" uid="uid://b87dkbqmbvfb5" path="res://levels/first_car/first_car.tscn" id="1_qw5lp"]
+[ext_resource type="PackedScene" uid="uid://u87f226r7x1t" path="res://levels/second_car/second_car.tscn" id="2_ip0au"]
+[ext_resource type="PackedScene" uid="uid://dcb7o5gwntpur" path="res://nancy/nancy.tscn" id="3_ly6mx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ntq75"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_u8xm0"]
+sky_material = SubResource("ProceduralSkyMaterial_ntq75")
+
+[sub_resource type="Environment" id="Environment_7gv8m"]
+background_mode = 2
+sky = SubResource("Sky_u8xm0")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="FullTrain" type="Node3D"]
+script = ExtResource("1_8jwfv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7gv8m")
+
+[node name="Nancy" parent="." instance=ExtResource("3_ly6mx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.5447)
+
+[node name="Cars" type="Node3D" parent="."]
+
+[node name="FirstCar" parent="Cars" instance=ExtResource("1_qw5lp")]
+
+[node name="SecondCar" parent="Cars" instance=ExtResource("2_ip0au")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28.8351)
+
+[editable path="Cars/FirstCar"]
+[editable path="Cars/FirstCar/TrainCar"]
+[editable path="Cars/SecondCar"]
+[editable path="Cars/SecondCar/TrainCar"]
