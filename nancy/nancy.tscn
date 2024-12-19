@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcb7o5gwntpur"]
+[gd_scene load_steps=7 format=3 uid="uid://dcb7o5gwntpur"]
 
 [ext_resource type="Script" path="res://nancy/nancy.gd" id="1_y3idf"]
 [ext_resource type="Script" path="res://nancy/smooth_camera.gd" id="2_hlvjf"]
+[ext_resource type="Resource" uid="uid://lbhs5vlmjk21" path="res://inventory/nancy_inventory.tres" id="2_qfitx"]
+[ext_resource type="PackedScene" uid="uid://du2m2vm7xdpt" path="res://inventory/inventory_ui.tscn" id="4_scux7"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_psf3g"]
 radius = 0.14
@@ -13,6 +15,7 @@ height = 1.5
 
 [node name="Nancy" type="CharacterBody3D"]
 script = ExtResource("1_y3idf")
+Inventory = ExtResource("2_qfitx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
@@ -28,3 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 [node name="SmoothCamera" type="Camera3D" parent="CameraPivot"]
 current = true
 script = ExtResource("2_hlvjf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InventoryUI" parent="CanvasLayer" instance=ExtResource("4_scux7")]
