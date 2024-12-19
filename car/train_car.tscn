@@ -43,6 +43,12 @@ flip_faces = true
 size = Vector3(4, 4, 25)
 material = SubResource("StandardMaterial3D_qeu7t")
 
+[node name="BackDoor" type="CSGBox3D" parent="Car"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014088, -0.17749, 12.5074)
+operation = 2
+flip_faces = true
+size = Vector3(2, 4.35498, 0.146637)
+
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="Car"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.585912, 0, 0)
 operation = 2
@@ -124,6 +130,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014088, 0, -14.4356)
 calculate_tangents = false
 flip_faces = true
 size = Vector3(2, 4, 4)
+
+[node name="Door" type="CSGBox3D" parent="Car/NextCorridor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.07206)
+size = Vector3(2, 4, 0.146637)
 
 [node name="Floor" type="CSGBox3D" parent="."]
 size = Vector3(4, 0.1, 25)

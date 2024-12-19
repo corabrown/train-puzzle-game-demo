@@ -23,6 +23,9 @@ backlight = Color(1, 1, 1, 1)
 
 [node name="TrainCar" parent="." instance=ExtResource("3_qdbu0")]
 
+[node name="BackDoor" parent="TrainCar/Car" index="0"]
+flip_faces = false
+
 [node name="Furniture" type="Node3D" parent="TrainCar"]
 
 [node name="Armchair" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]

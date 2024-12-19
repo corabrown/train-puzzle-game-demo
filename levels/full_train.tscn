@@ -36,7 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.5447)
 [node name="FirstCar" parent="Cars" instance=ExtResource("1_qw5lp")]
 
 [node name="SecondCar" parent="Cars" instance=ExtResource("2_ip0au")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28.8351)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29.02)
 
 [editable path="Cars/FirstCar"]
 [editable path="Cars/FirstCar/TrainCar"]

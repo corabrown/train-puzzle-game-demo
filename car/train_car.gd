@@ -5,3 +5,4 @@ class_name TrainCar
 
 func set_next_corridor_invisible():
 	next_corridor.visible = false 
+	
