@@ -1,12 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://don8o7pvup016"]
 
 [ext_resource type="Script" path="res://car/train_car.gd" id="1_1oyov"]
+[ext_resource type="Material" uid="uid://b2x8c8wpmlnvj" path="res://textures/train_red.tres" id="2_iophg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wccts"]
 albedo_color = Color(0.486275, 0.188235, 0.188235, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qeu7t"]
-albedo_color = Color(0.396078, 0, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lr0x4"]
 albedo_color = Color(0.184314, 0.0352941, 0.0352941, 1)
@@ -41,7 +39,7 @@ cast_shadow = 0
 use_collision = true
 flip_faces = true
 size = Vector3(4, 4, 25)
-material = SubResource("StandardMaterial3D_qeu7t")
+material = ExtResource("2_iophg")
 
 [node name="BackDoor" type="CSGBox3D" parent="Car"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014088, -0.17749, 12.5074)
@@ -126,7 +124,7 @@ calculate_tangents = false
 size = Vector3(0.2, 1.8, 2)
 
 [node name="NextCorridor" type="CSGBox3D" parent="Car"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014088, 0, -14.4356)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.436)
 calculate_tangents = false
 flip_faces = true
 size = Vector3(2, 4, 4)
@@ -136,5 +134,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.07206)
 size = Vector3(2, 4, 0.146637)
 
 [node name="Floor" type="CSGBox3D" parent="."]
+use_collision = true
 size = Vector3(4, 0.1, 25)
+material = SubResource("StandardMaterial3D_lr0x4")
+
+[node name="Floor2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.436)
+use_collision = true
+size = Vector3(2, 0.1, 4)
 material = SubResource("StandardMaterial3D_lr0x4")

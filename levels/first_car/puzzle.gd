@@ -17,7 +17,7 @@ var selected_index: int = 0
 var current_password := [0, 0, 0]
 @onready var numbers := [first_number, second_number, third_number]
 
-var answer = [6,4,8]
+var answer = [0,0,0]
 
 
 func _ready() -> void:

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://chsc8we4ubtp3"
-path="res://.godot/imported/Couch.fbx-8b002890cb1196876c9350d48d5f9e4a.scn"
+uid="uid://cfudygqqfgfm3"
+path="res://.godot/imported/Single Bed.fbx-d5de6bf61cfe8ad0eb6385ba31fa091f.scn"
 
 [deps]
 
-source_file="res://assets/furniture/Couch.fbx"
-dest_files=["res://.godot/imported/Couch.fbx-8b002890cb1196876c9350d48d5f9e4a.scn"]
+source_file="res://assets/furniture/Single Bed.fbx"
+dest_files=["res://.godot/imported/Single Bed.fbx-d5de6bf61cfe8ad0eb6385ba31fa091f.scn"]
 
 [params]
 
@@ -35,7 +35,7 @@ _subresources={
 "materials": {
 "Material": {
 "use_external/enabled": true,
-"use_external/path": "res://textures/fabric_color.tres"
+"use_external/path": "res://textures/dark_wood.tres"
 }
 }
 }

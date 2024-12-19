@@ -12,7 +12,12 @@ var in_puzzle_zone := false
 @onready var tea_pickup: Label3D = $Food/Tea/TeaArea/TeaPickup
 
 @onready var objects = [coffee, tea, frappe]
+@onready var next_corridor: CSGBox3D = $"../TrainCar/Car/NextCorridor"
+
 var selected_index := -1
+
+func _process(_delta:float):
+	next_corridor.visible = true 
 
 func _on_puzzle_area_body_entered(body: Node3D) -> void:
 	if body is Nancy:

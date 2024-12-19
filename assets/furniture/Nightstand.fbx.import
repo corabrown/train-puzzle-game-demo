@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://chsc8we4ubtp3"
-path="res://.godot/imported/Couch.fbx-8b002890cb1196876c9350d48d5f9e4a.scn"
+uid="uid://bm51xtgf83wk4"
+path="res://.godot/imported/Nightstand.fbx-a4f45ae0083d346c703e1f484263bfe6.scn"
 
 [deps]
 
-source_file="res://assets/furniture/Couch.fbx"
-dest_files=["res://.godot/imported/Couch.fbx-8b002890cb1196876c9350d48d5f9e4a.scn"]
+source_file="res://assets/furniture/Nightstand.fbx"
+dest_files=["res://.godot/imported/Nightstand.fbx-a4f45ae0083d346c703e1f484263bfe6.scn"]
 
 [params]
 
@@ -35,7 +35,7 @@ _subresources={
 "materials": {
 "Material": {
 "use_external/enabled": true,
-"use_external/path": "res://textures/fabric_color.tres"
+"use_external/path": "res://textures/dark_wood.tres"
 }
 }
 }

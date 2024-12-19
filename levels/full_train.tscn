@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbrknbrdgmkee"]
+[gd_scene load_steps=9 format=3 uid="uid://cbrknbrdgmkee"]
 
 [ext_resource type="Script" path="res://levels/full_train.gd" id="1_8jwfv"]
 [ext_resource type="PackedScene" uid="uid://b87dkbqmbvfb5" path="res://levels/first_car/first_car.tscn" id="1_qw5lp"]
 [ext_resource type="PackedScene" uid="uid://u87f226r7x1t" path="res://levels/second_car/second_car.tscn" id="2_ip0au"]
 [ext_resource type="PackedScene" uid="uid://dcb7o5gwntpur" path="res://nancy/nancy.tscn" id="3_ly6mx"]
+[ext_resource type="PackedScene" uid="uid://c22jkbpu0gtyo" path="res://levels/third_car/third_car.tscn" id="5_j87cf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ntq75"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -36,9 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.5447)
 [node name="FirstCar" parent="Cars" instance=ExtResource("1_qw5lp")]
 
 [node name="SecondCar" parent="Cars" instance=ExtResource("2_ip0au")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29.02)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28.925)
 
-[editable path="Cars/FirstCar"]
-[editable path="Cars/FirstCar/TrainCar"]
-[editable path="Cars/SecondCar"]
-[editable path="Cars/SecondCar/TrainCar"]
+[node name="ThirdCar" parent="Cars" instance=ExtResource("5_j87cf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -57.85)
