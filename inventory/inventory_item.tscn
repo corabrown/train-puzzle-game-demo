@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://o2uvmvni8l02"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_5rj7i"]
+
+[node name="InventoryItem" type="Node3D"]
+script = ExtResource("1_5rj7i")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="PickupLabel" type="Label3D" parent="."]
+text = "F to pick up"
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

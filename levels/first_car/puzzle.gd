@@ -7,7 +7,7 @@ extends Node3D
 @onready var second_label_3d: Label3D = $Password/SecondNumber/Label3D
 @onready var third_label_3d: Label3D = $Password/ThirdNumber/Label3D
 @onready var password: Node3D = $Password
-@onready var corridor: CSGBox3D = $"../TrainCar/Car/NextCorridor"
+#@onready var corridor: CSGBox3D = $"../TrainCar/Car/NextCorridor"
 
 var first_label_3d_text := 0 
 var in_puzzle_zone := false
@@ -17,11 +17,14 @@ var selected_index: int = 0
 var current_password := [0, 0, 0]
 @onready var numbers := [first_number, second_number, third_number]
 
-var answer = [0,0,0]
+@export var corridor: CSGBox3D 
+
+var answer = [6,4,8]
 
 
 func _ready() -> void:
 	instructions.visible = false 
+	corridor.visible = false 
 	#first_label_3d.text = str(first_label_3d_text)
 	
 func _process(_delta: float) -> void:

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjj3kwnjc6l17"]
+
+[ext_resource type="PackedScene" uid="uid://o2uvmvni8l02" path="res://inventory/inventory_item.tscn" id="1_uhndo"]
+[ext_resource type="Texture2D" uid="uid://dfn34tu1openx" path="res://assets/food/coffee.png" id="2_de7s0"]
+
+[node name="Coffee" instance=ExtResource("1_uhndo")]
+Name = "Coffee"
+texture = ExtResource("2_de7s0")

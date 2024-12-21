@@ -2,11 +2,12 @@ extends CharacterBody3D
 class_name Nancy
 
 
-@export var Inventory: Inventory
+@export var inventory: Inventory
 
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var smooth_camera: Camera3D = $CameraPivot/SmoothCamera
 @onready var smooth_camera_fov = smooth_camera.fov
+#@onready var inventory_ui: Node3D = $CanvasLayer/InventoryUI
 
 const SPEED = 8.0
 const JUMP_VELOCITY = 4.5

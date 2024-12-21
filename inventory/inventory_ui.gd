@@ -1,12 +1,13 @@
-extends Control
+extends Control 
 
-@onready var inventory: Inventory = preload("res://inventory/nancy_inventory.tres")
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children()
+
+@export var inventory: Inventory
 
 var is_open = false
 
 func _ready():
-	update_slots()
+	#update_slots()
 	close()
 	
 func close():
@@ -23,7 +24,6 @@ func _process(delta):
 			close()
 		else:
 			open()
-
 
 func update_slots():
 	for i in range(min(inventory.items.size(), slots.size())):

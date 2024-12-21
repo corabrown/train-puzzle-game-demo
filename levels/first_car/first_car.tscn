@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b87dkbqmbvfb5"]
+[gd_scene load_steps=7 format=3 uid="uid://b87dkbqmbvfb5"]
 
 [ext_resource type="PackedScene" uid="uid://jqshckbe3a4x" path="res://assets/furniture/Armchair.fbx" id="2_qkxsn"]
 [ext_resource type="Script" path="res://levels/first_car/puzzle.gd" id="3_1fbn6"]
-[ext_resource type="PackedScene" uid="uid://don8o7pvup016" path="res://car/train_car.tscn" id="3_qdbu0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_481pl"]
 size = Vector3(6, 4, 5)
@@ -21,65 +20,60 @@ backlight = Color(1, 1, 1, 1)
 
 [node name="FirstCar" type="Node3D" groups=["train_car"]]
 
-[node name="TrainCar" parent="." instance=ExtResource("3_qdbu0")]
+[node name="Furniture" type="Node3D" parent="."]
 
-[node name="BackDoor" parent="TrainCar/Car" index="0"]
-flip_faces = false
-
-[node name="Furniture" type="Node3D" parent="TrainCar"]
-
-[node name="Armchair" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
+[node name="Armchair" parent="Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.7, -8)
 
-[node name="Armchair2" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
+[node name="Armchair2" parent="Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.7, -5)
 
-[node name="Armchair3" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
+[node name="Armchair3" parent="Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.7, -1)
 
-[node name="Armchair4" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
+[node name="Armchair4" parent="Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.7, 2)
 
-[node name="Armchair5" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
+[node name="Armchair5" parent="Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.7, 5)
 
-[node name="Armchair6" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
+[node name="Armchair6" parent="Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.7, 8)
 
-[node name="Armchair7" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
+[node name="Armchair7" parent="Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.7, -8)
 
-[node name="Armchair8" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
+[node name="Armchair8" parent="Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.7, -5)
 
-[node name="Armchair9" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
+[node name="Armchair9" parent="Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.7, -1)
 
-[node name="Armchair10" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
+[node name="Armchair10" parent="Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.7, 2)
 
-[node name="Armchair11" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
+[node name="Armchair11" parent="Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.7, 5)
 
-[node name="Armchair12" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
+[node name="Armchair12" parent="Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.7, 8)
 
-[node name="Armchair13" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
+[node name="Armchair13" parent="Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.7, -8)
 
-[node name="Armchair14" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
+[node name="Armchair14" parent="Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.7, -5)
 
-[node name="Armchair15" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
+[node name="Armchair15" parent="Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.7, -1)
 
-[node name="Armchair16" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
+[node name="Armchair16" parent="Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.7, 2)
 
-[node name="Armchair17" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
+[node name="Armchair17" parent="Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.7, 5)
 
-[node name="Armchair18" parent="TrainCar/Furniture" instance=ExtResource("2_qkxsn")]
+[node name="Armchair18" parent="Furniture" instance=ExtResource("2_qkxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.7, 8)
 
 [node name="Puzzle" type="Node3D" parent="."]
@@ -162,5 +156,3 @@ font_size = 180
 
 [connection signal="body_entered" from="Puzzle/PuzzleArea" to="Puzzle" method="_on_puzzle_area_body_entered"]
 [connection signal="body_exited" from="Puzzle/PuzzleArea" to="Puzzle" method="_on_puzzle_area_body_exited"]
-
-[editable path="TrainCar"]

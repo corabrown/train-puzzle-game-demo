@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbrknbrdgmkee"]
+[gd_scene load_steps=11 format=3 uid="uid://cbrknbrdgmkee"]
 
 [ext_resource type="Script" path="res://levels/full_train.gd" id="1_8jwfv"]
 [ext_resource type="PackedScene" uid="uid://b87dkbqmbvfb5" path="res://levels/first_car/first_car.tscn" id="1_qw5lp"]
 [ext_resource type="PackedScene" uid="uid://u87f226r7x1t" path="res://levels/second_car/second_car.tscn" id="2_ip0au"]
 [ext_resource type="PackedScene" uid="uid://dcb7o5gwntpur" path="res://nancy/nancy.tscn" id="3_ly6mx"]
-[ext_resource type="PackedScene" uid="uid://c22jkbpu0gtyo" path="res://levels/third_car/third_car.tscn" id="5_j87cf"]
+[ext_resource type="PackedScene" uid="uid://buleggb7iqa1v" path="res://levels/third_car/third_car.tscn" id="5_j87cf"]
+[ext_resource type="PackedScene" uid="uid://xhjgx0s5y0kp" path="res://levels/train.tscn" id="6_l68yl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ntq75"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -18,6 +19,9 @@ background_mode = 2
 sky = SubResource("Sky_u8xm0")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfpob"]
+albedo_color = Color(0.0745098, 0.427451, 0.0823529, 1)
 
 [node name="FullTrain" type="Node3D"]
 script = ExtResource("1_8jwfv")
@@ -36,8 +40,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.5447)
 
 [node name="FirstCar" parent="Cars" instance=ExtResource("1_qw5lp")]
 
+[node name="Puzzle" parent="Cars/FirstCar" index="1" node_paths=PackedStringArray("corridor")]
+corridor = NodePath("../../../Train/Car/NextCorridor")
+
 [node name="SecondCar" parent="Cars" instance=ExtResource("2_ip0au")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28.925)
 
+[node name="Puzzle" parent="Cars/SecondCar" index="0" node_paths=PackedStringArray("corridor")]
+corridor = NodePath("../../../Train/Car/Car2/NextCorridor")
+
 [node name="ThirdCar" parent="Cars" instance=ExtResource("5_j87cf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -57.85)
+
+[node name="Train" parent="." instance=ExtResource("6_l68yl")]
+
+[node name="Ground" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(200, 1, 200)
+material = SubResource("StandardMaterial3D_hfpob")
+
+[editable path="Cars/FirstCar"]
+[editable path="Cars/SecondCar"]
+[editable path="Cars/SecondCar/Puzzle/Food/Coffee"]
+[editable path="Cars/SecondCar/Puzzle/Food/Frappe"]
+[editable path="Cars/SecondCar/Puzzle/Food/Tea"]
+[editable path="Train"]

@@ -1,212 +1,213 @@
-[gd_scene load_steps=5 format=3 uid="uid://c22jkbpu0gtyo"]
+[gd_scene load_steps=4 format=3 uid="uid://buleggb7iqa1v"]
 
-[ext_resource type="PackedScene" uid="uid://don8o7pvup016" path="res://car/train_car.tscn" id="1_ryj6k"]
 [ext_resource type="Material" uid="uid://b2x8c8wpmlnvj" path="res://textures/train_red.tres" id="2_1cnyx"]
 [ext_resource type="PackedScene" uid="uid://chsc8we4ubtp3" path="res://assets/furniture/Couch.fbx" id="3_0orai"]
 [ext_resource type="PackedScene" uid="uid://bm51xtgf83wk4" path="res://assets/furniture/Nightstand.fbx" id="4_ddhn7"]
 
-[node name="ThirdCar" instance=ExtResource("1_ryj6k")]
+[node name="ThirdCar" type="Node3D"]
 
-[node name="Room1" type="Node3D" parent="Car" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.27961)
+[node name="Rooms" type="Node3D" parent="."]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Car/Room1" index="0"]
+[node name="Room1" type="Node3D" parent="Rooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 9.27961)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Rooms/Room1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, -1.86449)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.001)
+size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Car/Room1" index="1"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Rooms/Room1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, 1.34953)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.001)
+size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Car/Room1" index="2"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="Rooms/Room1"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.453145, 0.0177612, 0.140685)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.001)
+size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
-[node name="Couch" parent="Car/Room1" index="3" instance=ExtResource("3_0orai")]
+[node name="Couch" parent="Rooms/Room1" instance=ExtResource("3_0orai")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.38437, -1.28893, -0.256441)
 
-[node name="Nightstand" parent="Car/Room1" index="4" instance=ExtResource("4_ddhn7")]
+[node name="Nightstand" parent="Rooms/Room1" instance=ExtResource("4_ddhn7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173711, -1.52833, 1.06468)
 
-[node name="Nightstand2" parent="Car/Room1" index="5" instance=ExtResource("4_ddhn7")]
+[node name="Nightstand2" parent="Rooms/Room1" instance=ExtResource("4_ddhn7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.37131, -1.52833, 1.06468)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Car/Room1" index="6"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Rooms/Room1"]
 transform = Transform3D(1, 0, 0, 0, -0.0122868, 0.999925, 0, -0.999925, -0.0122868, 0.445774, 1.90951, -0.194439)
 light_energy = 0.5
 
-[node name="Room2" type="Node3D" parent="Car" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.05219)
+[node name="Room2" type="Node3D" parent="Rooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 6.05219)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Car/Room2" index="0"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Rooms/Room2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, -1.86449)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.001)
+size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Car/Room2" index="1"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Rooms/Room2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, 1.34953)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.001)
+size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Car/Room2" index="2"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="Rooms/Room2"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.453145, 0.0177612, 0.140685)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.001)
+size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
-[node name="Couch" parent="Car/Room2" index="3" instance=ExtResource("3_0orai")]
+[node name="Couch" parent="Rooms/Room2" instance=ExtResource("3_0orai")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.38437, -1.28893, -0.256441)
 
-[node name="Nightstand" parent="Car/Room2" index="4" instance=ExtResource("4_ddhn7")]
+[node name="Nightstand" parent="Rooms/Room2" instance=ExtResource("4_ddhn7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173711, -1.52833, 1.06468)
 
-[node name="Nightstand2" parent="Car/Room2" index="5" instance=ExtResource("4_ddhn7")]
+[node name="Nightstand2" parent="Rooms/Room2" instance=ExtResource("4_ddhn7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.37131, -1.52833, 1.06468)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Car/Room2" index="6"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Rooms/Room2"]
 transform = Transform3D(1, 0, 0, 0, -0.0122868, 0.999925, 0, -0.999925, -0.0122868, 0.445774, 1.90951, -0.194439)
 light_energy = 0.5
 
-[node name="Room3" type="Node3D" parent="Car" index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.77723)
+[node name="Room3" type="Node3D" parent="Rooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2.77723)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Car/Room3" index="0"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Rooms/Room3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, -1.86449)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.001)
+size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Car/Room3" index="1"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Rooms/Room3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, 1.34953)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.001)
+size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Car/Room3" index="2"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="Rooms/Room3"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.453145, 0.0177612, 0.140685)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.001)
+size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
-[node name="Couch" parent="Car/Room3" index="3" instance=ExtResource("3_0orai")]
+[node name="Couch" parent="Rooms/Room3" instance=ExtResource("3_0orai")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.38437, -1.28893, -0.256441)
 
-[node name="Nightstand" parent="Car/Room3" index="4" instance=ExtResource("4_ddhn7")]
+[node name="Nightstand" parent="Rooms/Room3" instance=ExtResource("4_ddhn7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173711, -1.52833, 1.06468)
 
-[node name="Nightstand2" parent="Car/Room3" index="5" instance=ExtResource("4_ddhn7")]
+[node name="Nightstand2" parent="Rooms/Room3" instance=ExtResource("4_ddhn7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.37131, -1.52833, 1.06468)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Car/Room3" index="6"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Rooms/Room3"]
 transform = Transform3D(1, 0, 0, 0, -0.0122868, 0.999925, 0, -0.999925, -0.0122868, 0.445774, 1.90951, -0.194439)
 light_energy = 0.5
 
-[node name="Room4" type="Node3D" parent="Car" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.391898)
+[node name="Room4" type="Node3D" parent="Rooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.391898)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Car/Room4" index="0"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Rooms/Room4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, -1.86449)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.001)
+size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Car/Room4" index="1"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Rooms/Room4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, 1.34953)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.001)
+size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Car/Room4" index="2"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="Rooms/Room4"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.453145, 0.0177612, 0.140685)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.001)
+size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
-[node name="Couch" parent="Car/Room4" index="3" instance=ExtResource("3_0orai")]
+[node name="Couch" parent="Rooms/Room4" instance=ExtResource("3_0orai")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.38437, -1.28893, -0.256441)
 
-[node name="Nightstand" parent="Car/Room4" index="4" instance=ExtResource("4_ddhn7")]
+[node name="Nightstand" parent="Rooms/Room4" instance=ExtResource("4_ddhn7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173711, -1.52833, 1.06468)
 
-[node name="Nightstand2" parent="Car/Room4" index="5" instance=ExtResource("4_ddhn7")]
+[node name="Nightstand2" parent="Rooms/Room4" instance=ExtResource("4_ddhn7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.37131, -1.52833, 1.06468)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Car/Room4" index="6"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Rooms/Room4"]
 transform = Transform3D(1, 0, 0, 0, -0.0122868, 0.999925, 0, -0.999925, -0.0122868, 0.445774, 1.90951, -0.194439)
 light_energy = 0.5
 
-[node name="Room5" type="Node3D" parent="Car" index="7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.65893)
+[node name="Room5" type="Node3D" parent="Rooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3.65893)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Car/Room5" index="0"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Rooms/Room5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, -1.86449)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.001)
+size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Car/Room5" index="1"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Rooms/Room5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, 1.34953)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.001)
+size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Car/Room5" index="2"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="Rooms/Room5"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.453145, 0.0177612, 0.140685)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.001)
+size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
-[node name="Couch" parent="Car/Room5" index="3" instance=ExtResource("3_0orai")]
+[node name="Couch" parent="Rooms/Room5" instance=ExtResource("3_0orai")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.38437, -1.28893, -0.256441)
 
-[node name="Nightstand" parent="Car/Room5" index="4" instance=ExtResource("4_ddhn7")]
+[node name="Nightstand" parent="Rooms/Room5" instance=ExtResource("4_ddhn7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173711, -1.52833, 1.06468)
 
-[node name="Nightstand2" parent="Car/Room5" index="5" instance=ExtResource("4_ddhn7")]
+[node name="Nightstand2" parent="Rooms/Room5" instance=ExtResource("4_ddhn7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.37131, -1.52833, 1.06468)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Car/Room5" index="6"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Rooms/Room5"]
 transform = Transform3D(1, 0, 0, 0, -0.0122868, 0.999925, 0, -0.999925, -0.0122868, 0.445774, 1.90951, -0.194439)
 light_energy = 0.5
 
-[node name="Room6" type="Node3D" parent="Car" index="8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.89264)
+[node name="Room6" type="Node3D" parent="Rooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -6.89264)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Car/Room6" index="0"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Rooms/Room6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, -1.86449)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.001)
+size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Car/Room6" index="1"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Rooms/Room6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, 1.34953)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.001)
+size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Car/Room6" index="2"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="Rooms/Room6"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.453145, 0.0177612, 0.140685)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.001)
+size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
-[node name="Couch" parent="Car/Room6" index="3" instance=ExtResource("3_0orai")]
+[node name="Couch" parent="Rooms/Room6" instance=ExtResource("3_0orai")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.38437, -1.28893, -0.256441)
 
-[node name="Nightstand" parent="Car/Room6" index="4" instance=ExtResource("4_ddhn7")]
+[node name="Nightstand" parent="Rooms/Room6" instance=ExtResource("4_ddhn7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173711, -1.52833, 1.06468)
 
-[node name="Nightstand2" parent="Car/Room6" index="5" instance=ExtResource("4_ddhn7")]
+[node name="Nightstand2" parent="Rooms/Room6" instance=ExtResource("4_ddhn7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.37131, -1.52833, 1.06468)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Car/Room6" index="6"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Rooms/Room6"]
 transform = Transform3D(1, 0, 0, 0, -0.0122868, 0.999925, 0, -0.999925, -0.0122868, 0.445774, 1.90951, -0.194439)
 light_energy = 0.5
