@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuxojk146s2yr"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_pkku2"]
+[ext_resource type="Texture2D" uid="uid://dfn34tu1openx" path="res://assets/food/coffee.png" id="2_hqfa4"]
+
+[node name="InventoryItem" type="Node3D"]
+script = ExtResource("1_pkku2")
+item_name = "Coffee"
+texture = ExtResource("2_hqfa4")

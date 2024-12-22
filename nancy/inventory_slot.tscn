@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv3j5yoo7rh3d"]
+
+[ext_resource type="Script" path="res://nancy/inventory_slot.gd" id="1_dq6im"]
+[ext_resource type="Texture2D" uid="uid://dvfsb33uxedwc" path="res://assets/food/tea.png" id="2_2cw5a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6uhd6"]
+font_size = 32
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="InventorySlot" type="Button"]
+custom_minimum_size = Vector2(105, 105)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_dq6im")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_2cw5a")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Tea
+"
+label_settings = SubResource("LabelSettings_6uhd6")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

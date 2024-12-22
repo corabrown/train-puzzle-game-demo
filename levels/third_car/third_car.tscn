@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://buleggb7iqa1v"]
+[gd_scene load_steps=5 format=3 uid="uid://buleggb7iqa1v"]
 
 [ext_resource type="Material" uid="uid://b2x8c8wpmlnvj" path="res://textures/train_red.tres" id="2_1cnyx"]
 [ext_resource type="PackedScene" uid="uid://chsc8we4ubtp3" path="res://assets/furniture/Couch.fbx" id="3_0orai"]
 [ext_resource type="PackedScene" uid="uid://bm51xtgf83wk4" path="res://assets/furniture/Nightstand.fbx" id="4_ddhn7"]
+[ext_resource type="Script" path="res://car/train_car.gd" id="4_trpi0"]
 
 [node name="ThirdCar" type="Node3D"]
 
@@ -211,3 +212,6 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3713
 [node name="SpotLight3D" type="SpotLight3D" parent="Rooms/Room6"]
 transform = Transform3D(1, 0, 0, 0, -0.0122868, 0.999925, 0, -0.999925, -0.0122868, 0.445774, 1.90951, -0.194439)
 light_energy = 0.5
+
+[node name="TrainCar" type="Node3D" parent="."]
+script = ExtResource("4_trpi0")
