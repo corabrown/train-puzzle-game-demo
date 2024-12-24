@@ -25,7 +25,6 @@ var answer = [6,4,8]
 func _ready() -> void:
 	instructions.visible = false 
 	corridor.visible = false 
-	#first_label_3d.text = str(first_label_3d_text)
 	
 func _process(_delta: float) -> void:
 	first_label_3d.text = str(current_password[0])

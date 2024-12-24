@@ -19,7 +19,7 @@ func _ready() -> void:
 	for item in starter_items:
 		add_item(item)
 
-func _process(delta) -> void:
+func _process(_delta) -> void:
 	if Input.is_action_just_pressed("inventory"):
 		toggle_window(!inventory_window.visible)
 

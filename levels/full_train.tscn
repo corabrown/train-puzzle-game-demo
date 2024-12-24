@@ -1,6 +1,5 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbrknbrdgmkee"]
+[gd_scene load_steps=10 format=3 uid="uid://cbrknbrdgmkee"]
 
-[ext_resource type="Script" path="res://levels/full_train.gd" id="1_8jwfv"]
 [ext_resource type="PackedScene" uid="uid://b87dkbqmbvfb5" path="res://levels/first_car/first_car.tscn" id="1_qw5lp"]
 [ext_resource type="PackedScene" uid="uid://u87f226r7x1t" path="res://levels/second_car/second_car.tscn" id="2_ip0au"]
 [ext_resource type="PackedScene" uid="uid://dcb7o5gwntpur" path="res://nancy/nancy.tscn" id="3_ly6mx"]
@@ -24,7 +23,6 @@ glow_enabled = true
 albedo_color = Color(0.0745098, 0.427451, 0.0823529, 1)
 
 [node name="FullTrain" type="Node3D"]
-script = ExtResource("1_8jwfv")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -52,7 +50,37 @@ corridor = NodePath("../../../Train/Car/Car2/NextCorridor")
 [node name="ThirdCar" parent="Cars" instance=ExtResource("5_j87cf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -57.85)
 
+[node name="Puzzle" parent="Cars/ThirdCar" index="1" node_paths=PackedStringArray("next_corridor")]
+next_corridor = NodePath("../../../Train/Car/Car3/NextCorridor")
+
 [node name="Train" parent="." instance=ExtResource("6_l68yl")]
+
+[node name="OmniLight3D" parent="Train/Car/Car3/Lights" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -9)
+
+[node name="OmniLight3D2" parent="Train/Car/Car3/Lights" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 8.39018)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Train/Car/Car3/Lights" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 5.39018)
+light_color = Color(1, 1, 0.803922, 1)
+light_energy = 5.0
+shadow_enabled = true
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Train/Car/Car3/Lights" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2.39018)
+light_color = Color(1, 1, 0.803922, 1)
+light_energy = 5.0
+shadow_enabled = true
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Train/Car/Car3/Lights" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1.60982)
+light_color = Color(1, 1, 0.803922, 1)
+light_energy = 5.0
+shadow_enabled = true
+
+[node name="OmniLight3D3" parent="Train/Car/Car3/Lights" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4.33182)
 
 [node name="Ground" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -55)
@@ -64,4 +92,5 @@ material = SubResource("StandardMaterial3D_hfpob")
 [editable path="Cars/SecondCar/Puzzle/Food/Coffee"]
 [editable path="Cars/SecondCar/Puzzle/Food/Frappe"]
 [editable path="Cars/SecondCar/Puzzle/Food/Tea"]
+[editable path="Cars/ThirdCar"]
 [editable path="Train"]

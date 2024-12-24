@@ -1,16 +1,150 @@
-[gd_scene load_steps=5 format=3 uid="uid://buleggb7iqa1v"]
+[gd_scene load_steps=21 format=3 uid="uid://buleggb7iqa1v"]
 
+[ext_resource type="Script" path="res://car/train_car.gd" id="1_3l2gs"]
+[ext_resource type="Script" path="res://levels/third_car/room.gd" id="1_w21ta"]
 [ext_resource type="Material" uid="uid://b2x8c8wpmlnvj" path="res://textures/train_red.tres" id="2_1cnyx"]
 [ext_resource type="PackedScene" uid="uid://chsc8we4ubtp3" path="res://assets/furniture/Couch.fbx" id="3_0orai"]
 [ext_resource type="PackedScene" uid="uid://bm51xtgf83wk4" path="res://assets/furniture/Nightstand.fbx" id="4_ddhn7"]
-[ext_resource type="Script" path="res://car/train_car.gd" id="4_trpi0"]
+[ext_resource type="Material" uid="uid://dlvdbaqokb4os" path="res://textures/wood.tres" id="5_qxcun"]
+[ext_resource type="Script" path="res://levels/third_car/puzzle.gd" id="6_pqxe1"]
+[ext_resource type="Texture2D" uid="uid://dqrsco86fvyka" path="res://assets/binary/binary3.PNG" id="7_8g2lp"]
+[ext_resource type="PackedScene" uid="uid://b78v50a0vt04i" path="res://assets/furniture/Desk.fbx" id="8_bsjir"]
+[ext_resource type="Texture2D" uid="uid://cux3dhfnruw6k" path="res://assets/binary/Decimal-to-Binary.jpg" id="8_qaiv1"]
+[ext_resource type="PackedScene" uid="uid://j7ph2fmty8td" path="res://assets/furniture/Thin Chair.fbx" id="9_67ptf"]
+[ext_resource type="PackedScene" uid="uid://jqshckbe3a4x" path="res://assets/furniture/Armchair.fbx" id="10_at4d4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q0s1b"]
+size = Vector3(1.61502, 3.53851, 2.37024)
+
+[sub_resource type="Animation" id="Animation_st63f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.46425, 0.0177612, -1.22466)]
+}
+
+[sub_resource type="Animation" id="Animation_2d0we"]
+resource_name = "close_door"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.46425, 0.0177612, 0.00306892), Vector3(-0.46425, 0.0177612, -1.22466)]
+}
+
+[sub_resource type="Animation" id="Animation_6l03w"]
+resource_name = "open_door"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.46425, 0.0177612, -1.22466), Vector3(-0.46425, 0.0177612, 0.00306892)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hcto3"]
+_data = {
+"RESET": SubResource("Animation_st63f"),
+"close_door": SubResource("Animation_2d0we"),
+"open_door": SubResource("Animation_6l03w")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqwmy"]
+albedo_texture = ExtResource("7_8g2lp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ergf6"]
+albedo_texture = ExtResource("8_qaiv1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u38vg"]
+albedo_color = Color(2.40654e-07, 0.358977, 0.358977, 1)
+backlight = Color(1, 1, 1, 1)
 
 [node name="ThirdCar" type="Node3D"]
+script = ExtResource("1_3l2gs")
 
 [node name="Rooms" type="Node3D" parent="."]
 
+[node name="Room0" type="Node3D" parent="Rooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 9)
+script = ExtResource("1_w21ta")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Rooms/Room0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, -1.86449)
+use_collision = true
+size = Vector3(2.44885, 3.94958, 0.05)
+material = ExtResource("2_1cnyx")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Rooms/Room0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, 1.34953)
+use_collision = true
+size = Vector3(2.44885, 3.94958, 0.05)
+material = ExtResource("2_1cnyx")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Rooms/Room0"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.453145, 0.0177612, 0.36447)
+use_collision = true
+size = Vector3(2, 3.95, 0.05)
+material = ExtResource("2_1cnyx")
+
+[node name="Couch" parent="Rooms/Room0" instance=ExtResource("3_0orai")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.38437, -1.28893, -0.256441)
+
+[node name="Nightstand" parent="Rooms/Room0" instance=ExtResource("4_ddhn7")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173711, -1.52833, 1.06468)
+
+[node name="Nightstand2" parent="Rooms/Room0" instance=ExtResource("4_ddhn7")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.37131, -1.52833, 1.06468)
+
+[node name="Door" type="CSGBox3D" parent="Rooms/Room0"]
+transform = Transform3D(0.0143461, 0, -0.999897, 0, 1, 0, 0.999897, 0, 0.0143461, -0.46425, 0.0177612, -1.22466)
+use_collision = true
+size = Vector3(1.28204, 3.94958, 0.05)
+material = ExtResource("5_qxcun")
+
+[node name="DoorArea" type="Area3D" parent="Rooms/Room0/Door"]
+transform = Transform3D(0.0143461, 0, 0.999897, 0, 1, 0, -0.999897, 0, 0.0143461, 1.2312, -0.0177612, -0.446634)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/Room0/Door/DoorArea"]
+transform = Transform3D(0.999992, 0, 0, 0, 1, 0, 0, 0, 0.999992, -1.23009, 0.099762, -1.18044)
+shape = SubResource("BoxShape3D_q0s1b")
+
+[node name="Label3D" type="Label3D" parent="Rooms/Room0/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000955582, -0.341861, 0.0665925)
+text = "F to open"
+
+[node name="RoomNumber" type="Label3D" parent="Rooms/Room0/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0.1)
+text = "0
+"
+font_size = 120
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Room0"]
+libraries = {
+"": SubResource("AnimationLibrary_hcto3")
+}
+
 [node name="Room1" type="Node3D" parent="Rooms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 9.27961)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5.8)
+script = ExtResource("1_w21ta")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Rooms/Room1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, -1.86449)
@@ -25,9 +159,9 @@ size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Rooms/Room1"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.453145, 0.0177612, 0.140685)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.453145, 0.0177612, 0.36447)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.05)
+size = Vector3(2, 3.95, 0.05)
 material = ExtResource("2_1cnyx")
 
 [node name="Couch" parent="Rooms/Room1" instance=ExtResource("3_0orai")]
@@ -39,12 +173,37 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173
 [node name="Nightstand2" parent="Rooms/Room1" instance=ExtResource("4_ddhn7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.37131, -1.52833, 1.06468)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Rooms/Room1"]
-transform = Transform3D(1, 0, 0, 0, -0.0122868, 0.999925, 0, -0.999925, -0.0122868, 0.445774, 1.90951, -0.194439)
-light_energy = 0.5
+[node name="Door" type="CSGBox3D" parent="Rooms/Room1"]
+transform = Transform3D(0.0143461, 0, -0.999897, 0, 1, 0, 0.999897, 0, 0.0143461, -0.46425, 0.0177612, -1.22466)
+use_collision = true
+size = Vector3(1.28204, 3.94958, 0.05)
+material = ExtResource("5_qxcun")
+
+[node name="DoorArea" type="Area3D" parent="Rooms/Room1/Door"]
+transform = Transform3D(0.0143461, 0, 0.999897, 0, 1, 0, -0.999897, 0, 0.0143461, 1.2312, -0.0177612, -0.446634)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/Room1/Door/DoorArea"]
+transform = Transform3D(0.999992, 0, 0, 0, 1, 0, 0, 0, 0.999992, -1.23009, 0.099762, -1.18044)
+shape = SubResource("BoxShape3D_q0s1b")
+
+[node name="Label3D" type="Label3D" parent="Rooms/Room1/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000955582, -0.341861, 0.0665925)
+text = "F to open"
+
+[node name="RoomNumber" type="Label3D" parent="Rooms/Room1/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0.1)
+text = "1
+"
+font_size = 120
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Room1"]
+libraries = {
+"": SubResource("AnimationLibrary_hcto3")
+}
 
 [node name="Room2" type="Node3D" parent="Rooms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 6.05219)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2.6)
+script = ExtResource("1_w21ta")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Rooms/Room2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, -1.86449)
@@ -59,9 +218,9 @@ size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Rooms/Room2"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.453145, 0.0177612, 0.140685)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.453145, 0.0177612, 0.36447)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.05)
+size = Vector3(2, 3.95, 0.05)
 material = ExtResource("2_1cnyx")
 
 [node name="Couch" parent="Rooms/Room2" instance=ExtResource("3_0orai")]
@@ -73,12 +232,37 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173
 [node name="Nightstand2" parent="Rooms/Room2" instance=ExtResource("4_ddhn7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.37131, -1.52833, 1.06468)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Rooms/Room2"]
-transform = Transform3D(1, 0, 0, 0, -0.0122868, 0.999925, 0, -0.999925, -0.0122868, 0.445774, 1.90951, -0.194439)
-light_energy = 0.5
+[node name="Door" type="CSGBox3D" parent="Rooms/Room2"]
+transform = Transform3D(0.0143461, 0, -0.999897, 0, 1, 0, 0.999897, 0, 0.0143461, -0.46425, 0.0177612, -1.22466)
+use_collision = true
+size = Vector3(1.28204, 3.94958, 0.05)
+material = ExtResource("5_qxcun")
+
+[node name="DoorArea" type="Area3D" parent="Rooms/Room2/Door"]
+transform = Transform3D(0.0143461, 0, 0.999897, 0, 1, 0, -0.999897, 0, 0.0143461, 1.2312, -0.0177612, -0.446634)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/Room2/Door/DoorArea"]
+transform = Transform3D(0.999992, 0, 0, 0, 1, 0, 0, 0, 0.999992, -1.23009, 0.099762, -1.18044)
+shape = SubResource("BoxShape3D_q0s1b")
+
+[node name="Label3D" type="Label3D" parent="Rooms/Room2/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000955582, -0.341861, 0.0665925)
+text = "F to open"
+
+[node name="RoomNumber" type="Label3D" parent="Rooms/Room2/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0.1)
+text = "2
+"
+font_size = 120
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Room2"]
+libraries = {
+"": SubResource("AnimationLibrary_hcto3")
+}
 
 [node name="Room3" type="Node3D" parent="Rooms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2.77723)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.6)
+script = ExtResource("1_w21ta")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Rooms/Room3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, -1.86449)
@@ -93,9 +277,9 @@ size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Rooms/Room3"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.453145, 0.0177612, 0.140685)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.453145, 0.0177612, 0.36447)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.05)
+size = Vector3(2, 3.95, 0.05)
 material = ExtResource("2_1cnyx")
 
 [node name="Couch" parent="Rooms/Room3" instance=ExtResource("3_0orai")]
@@ -107,12 +291,37 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173
 [node name="Nightstand2" parent="Rooms/Room3" instance=ExtResource("4_ddhn7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.37131, -1.52833, 1.06468)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Rooms/Room3"]
-transform = Transform3D(1, 0, 0, 0, -0.0122868, 0.999925, 0, -0.999925, -0.0122868, 0.445774, 1.90951, -0.194439)
-light_energy = 0.5
+[node name="Door" type="CSGBox3D" parent="Rooms/Room3"]
+transform = Transform3D(0.0143461, 0, -0.999897, 0, 1, 0, 0.999897, 0, 0.0143461, -0.46425, 0.0177612, -1.22466)
+use_collision = true
+size = Vector3(1.28204, 3.94958, 0.05)
+material = ExtResource("5_qxcun")
+
+[node name="DoorArea" type="Area3D" parent="Rooms/Room3/Door"]
+transform = Transform3D(0.0143461, 0, 0.999897, 0, 1, 0, -0.999897, 0, 0.0143461, 1.2312, -0.0177612, -0.446634)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/Room3/Door/DoorArea"]
+transform = Transform3D(0.999992, 0, 0, 0, 1, 0, 0, 0, 0.999992, -1.23009, 0.099762, -1.18044)
+shape = SubResource("BoxShape3D_q0s1b")
+
+[node name="Label3D" type="Label3D" parent="Rooms/Room3/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000955582, -0.341861, 0.0665925)
+text = "F to open"
+
+[node name="RoomNumber" type="Label3D" parent="Rooms/Room3/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0.1)
+text = "3
+"
+font_size = 120
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Room3"]
+libraries = {
+"": SubResource("AnimationLibrary_hcto3")
+}
 
 [node name="Room4" type="Node3D" parent="Rooms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.391898)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3.8)
+script = ExtResource("1_w21ta")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Rooms/Room4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, -1.86449)
@@ -127,9 +336,9 @@ size = Vector3(2.44885, 3.94958, 0.05)
 material = ExtResource("2_1cnyx")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Rooms/Room4"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.453145, 0.0177612, 0.140685)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.453145, 0.0177612, 0.36447)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.05)
+size = Vector3(2, 3.95, 0.05)
 material = ExtResource("2_1cnyx")
 
 [node name="Couch" parent="Rooms/Room4" instance=ExtResource("3_0orai")]
@@ -141,77 +350,98 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173
 [node name="Nightstand2" parent="Rooms/Room4" instance=ExtResource("4_ddhn7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.37131, -1.52833, 1.06468)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Rooms/Room4"]
-transform = Transform3D(1, 0, 0, 0, -0.0122868, 0.999925, 0, -0.999925, -0.0122868, 0.445774, 1.90951, -0.194439)
-light_energy = 0.5
-
-[node name="Room5" type="Node3D" parent="Rooms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3.65893)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Rooms/Room5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, -1.86449)
+[node name="Door" type="CSGBox3D" parent="Rooms/Room4"]
+transform = Transform3D(0.0143461, 0, -0.999897, 0, 1, 0, 0.999897, 0, 0.0143461, -0.46425, 0.0177612, -1.22466)
 use_collision = true
-size = Vector3(2.44885, 3.94958, 0.05)
-material = ExtResource("2_1cnyx")
+size = Vector3(1.28204, 3.94958, 0.05)
+material = ExtResource("5_qxcun")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Rooms/Room5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, 1.34953)
-use_collision = true
-size = Vector3(2.44885, 3.94958, 0.05)
-material = ExtResource("2_1cnyx")
+[node name="DoorArea" type="Area3D" parent="Rooms/Room4/Door"]
+transform = Transform3D(0.0143461, 0, 0.999897, 0, 1, 0, -0.999897, 0, 0.0143461, 1.2312, -0.0177612, -0.446634)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Rooms/Room5"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.453145, 0.0177612, 0.140685)
-use_collision = true
-size = Vector3(2.44885, 3.94958, 0.05)
-material = ExtResource("2_1cnyx")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/Room4/Door/DoorArea"]
+transform = Transform3D(0.999992, 0, 0, 0, 1, 0, 0, 0, 0.999992, -1.23009, 0.099762, -1.18044)
+shape = SubResource("BoxShape3D_q0s1b")
 
-[node name="Couch" parent="Rooms/Room5" instance=ExtResource("3_0orai")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.38437, -1.28893, -0.256441)
+[node name="Label3D" type="Label3D" parent="Rooms/Room4/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000955582, -0.341861, 0.0665925)
+text = "F to open"
 
-[node name="Nightstand" parent="Rooms/Room5" instance=ExtResource("4_ddhn7")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173711, -1.52833, 1.06468)
+[node name="RoomNumber" type="Label3D" parent="Rooms/Room4/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0.1)
+text = "4
+"
+font_size = 120
 
-[node name="Nightstand2" parent="Rooms/Room5" instance=ExtResource("4_ddhn7")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.37131, -1.52833, 1.06468)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Room4"]
+libraries = {
+"": SubResource("AnimationLibrary_hcto3")
+}
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Rooms/Room5"]
-transform = Transform3D(1, 0, 0, 0, -0.0122868, 0.999925, 0, -0.999925, -0.0122868, 0.445774, 1.90951, -0.194439)
-light_energy = 0.5
+[node name="Puzzle" type="Node3D" parent="."]
+script = ExtResource("6_pqxe1")
 
-[node name="Room6" type="Node3D" parent="Rooms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -6.89264)
+[node name="BinarySetup" type="Label3D" parent="Puzzle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93769, 10.4087)
+text = "open = 0
+closed = 1"
+horizontal_alignment = 0
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Rooms/Room6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, -1.86449)
-use_collision = true
-size = Vector3(2.44885, 3.94958, 0.05)
-material = ExtResource("2_1cnyx")
+[node name="BinaryInstructions" type="CSGBox3D" parent="Puzzle"]
+transform = Transform3D(-4.37081e-08, -5.34022e-10, 1, -0.012217, 0.999925, 0, -0.999925, -0.012217, -4.37114e-08, 1.97426, 1.36234, -10.7841)
+cast_shadow = 0
+flip_faces = true
+size = Vector3(1, 1, 0.01)
+material = SubResource("StandardMaterial3D_dqwmy")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Rooms/Room6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.775819, 0.0177612, 1.34953)
-use_collision = true
-size = Vector3(2.44885, 3.94958, 0.05)
-material = ExtResource("2_1cnyx")
+[node name="BinaryInstructions2" type="CSGBox3D" parent="Puzzle"]
+transform = Transform3D(-4.37081e-08, -5.34022e-10, 1, -0.012217, 0.999925, 0, -0.999925, -0.012217, -4.37114e-08, 1.98058, 2.55687, -10.7796)
+cast_shadow = 0
+flip_faces = true
+size = Vector3(1, 1, 0.01)
+material = SubResource("StandardMaterial3D_ergf6")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Rooms/Room6"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.453145, 0.0177612, 0.140685)
-use_collision = true
-size = Vector3(2.44885, 3.94958, 0.05)
-material = ExtResource("2_1cnyx")
+[node name="PasswordDisplay" type="CSGBox3D" parent="Puzzle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0101129, 2.15913, -12.1005)
+cast_shadow = 0
+size = Vector3(1.4, 1, 0.1)
+material = SubResource("StandardMaterial3D_u38vg")
 
-[node name="Couch" parent="Rooms/Room6" instance=ExtResource("3_0orai")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.38437, -1.28893, -0.256441)
+[node name="Label3D" type="Label3D" parent="Puzzle/PasswordDisplay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+outline_modulate = Color(1, 1, 1, 1)
+text = "22
+"
+font_size = 100
 
-[node name="Nightstand" parent="Rooms/Room6" instance=ExtResource("4_ddhn7")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173711, -1.52833, 1.06468)
+[node name="Furniture" type="Node3D" parent="."]
 
-[node name="Nightstand2" parent="Rooms/Room6" instance=ExtResource("4_ddhn7")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.37131, -1.52833, 1.06468)
+[node name="Thin Chair" parent="Furniture" instance=ExtResource("9_67ptf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.65783, 0.607114, -6.77009)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Rooms/Room6"]
-transform = Transform3D(1, 0, 0, 0, -0.0122868, 0.999925, 0, -0.999925, -0.0122868, 0.445774, 1.90951, -0.194439)
-light_energy = 0.5
+[node name="Armchair" parent="Furniture" instance=ExtResource("10_at4d4")]
+transform = Transform3D(0.518072, 0, 0.855337, 0, 1, 0, -0.855337, 0, 0.518072, -1.2105, 0.685898, -11.2431)
 
-[node name="TrainCar" type="Node3D" parent="."]
-script = ExtResource("4_trpi0")
+[node name="Armchair2" parent="Furniture" instance=ExtResource("10_at4d4")]
+transform = Transform3D(-0.609647, 0, 0.792673, 0, 1, 0, -0.792673, 0, -0.609647, -1.2105, 0.685898, -9.44157)
+
+[node name="Desk" parent="Furniture" instance=ExtResource("8_bsjir")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.69971, 0.704752, -6.2751)
+
+[node name="WinningText" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0101129, 2.15913, -14.1197)
+outline_modulate = Color(1, 1, 1, 1)
+text = "YOU 
+WIN!!!"
+font_size = 100
+
+[connection signal="body_entered" from="Rooms/Room0/Door/DoorArea" to="Rooms/Room0" method="_on_door_area_body_entered"]
+[connection signal="body_exited" from="Rooms/Room0/Door/DoorArea" to="Rooms/Room0" method="_on_door_area_body_exited"]
+[connection signal="body_entered" from="Rooms/Room1/Door/DoorArea" to="Rooms/Room1" method="_on_door_area_body_entered"]
+[connection signal="body_exited" from="Rooms/Room1/Door/DoorArea" to="Rooms/Room1" method="_on_door_area_body_exited"]
+[connection signal="body_entered" from="Rooms/Room2/Door/DoorArea" to="Rooms/Room2" method="_on_door_area_body_entered"]
+[connection signal="body_exited" from="Rooms/Room2/Door/DoorArea" to="Rooms/Room2" method="_on_door_area_body_exited"]
+[connection signal="body_entered" from="Rooms/Room3/Door/DoorArea" to="Rooms/Room3" method="_on_door_area_body_entered"]
+[connection signal="body_exited" from="Rooms/Room3/Door/DoorArea" to="Rooms/Room3" method="_on_door_area_body_exited"]
+[connection signal="body_entered" from="Rooms/Room4/Door/DoorArea" to="Rooms/Room4" method="_on_door_area_body_entered"]
+[connection signal="body_exited" from="Rooms/Room4/Door/DoorArea" to="Rooms/Room4" method="_on_door_area_body_exited"]

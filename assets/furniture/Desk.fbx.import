@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://j7ph2fmty8td"
-path="res://.godot/imported/Thin Chair.fbx-6d76e16151a0534cfbbd2387dae53015.scn"
+uid="uid://b78v50a0vt04i"
+path="res://.godot/imported/Desk.fbx-add012679f323089a230b7502225ada3.scn"
 
 [deps]
 
-source_file="res://assets/furniture/Thin Chair.fbx"
-dest_files=["res://.godot/imported/Thin Chair.fbx-6d76e16151a0534cfbbd2387dae53015.scn"]
+source_file="res://assets/furniture/Desk.fbx"
+dest_files=["res://.godot/imported/Desk.fbx-add012679f323089a230b7502225ada3.scn"]
 
 [params]
 
@@ -35,7 +35,7 @@ _subresources={
 "materials": {
 "Material": {
 "use_external/enabled": true,
-"use_external/path": "res://textures/dark_wood.tres"
+"use_external/path": "res://textures/wood.tres"
 }
 }
 }
