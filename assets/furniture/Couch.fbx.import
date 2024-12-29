@@ -37,6 +37,11 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://textures/fabric_color.tres"
 }
+},
+"nodes": {
+"PATH:Couch": {
+"generate/physics": true
+}
 }
 }
 fbx/importer=0

@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbrknbrdgmkee"]
+[gd_scene load_steps=15 format=3 uid="uid://cbrknbrdgmkee"]
 
+[ext_resource type="Script" path="res://levels/path_3d.gd" id="1_6mdq7"]
 [ext_resource type="PackedScene" uid="uid://b87dkbqmbvfb5" path="res://levels/first_car/first_car.tscn" id="1_qw5lp"]
 [ext_resource type="PackedScene" uid="uid://u87f226r7x1t" path="res://levels/second_car/second_car.tscn" id="2_ip0au"]
 [ext_resource type="PackedScene" uid="uid://dcb7o5gwntpur" path="res://nancy/nancy.tscn" id="3_ly6mx"]
@@ -22,6 +23,51 @@ glow_enabled = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfpob"]
 albedo_color = Color(0.0745098, 0.427451, 0.0823529, 1)
 
+[sub_resource type="Animation" id="Animation_ip7vj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_frqoj"]
+resource_name = "moving_ground"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0), Vector3(0, 3.14159, 0), Vector3(0, 4.71239, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hb7l3"]
+_data = {
+"RESET": SubResource("Animation_ip7vj"),
+"moving_ground": SubResource("Animation_frqoj")
+}
+
+[sub_resource type="Curve3D" id="Curve3D_ksmfk"]
+_data = {
+"points": PackedVector3Array(-107.1, 0, 268.5, 107.1, 0, -268.5, -439.543, 0, -295.41, -129, 0, -128, 129, 0, 128, 423.9, 0, -287, 105.6, 0, -145.1, -105.6, 0, 145.1, 425.4, 0, 238.2, 198.2, 0, 141.9, -198.2, 0, -141.9, -383, 0, 320, -122.6, 0, 278.9, 122.6, 0, -278.9, -439.543, 0, -295.41),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
 [node name="FullTrain" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -31,66 +77,222 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7gv8m")
 
-[node name="Nancy" parent="." instance=ExtResource("3_ly6mx")]
+[node name="Ground" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -0.5, -40)
+use_collision = true
+size = Vector3(1514, 1, 1322)
+material = SubResource("StandardMaterial3D_hfpob")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -502, 1, 21)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -432, 1, -76)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -318, 1, -201)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -208, 1, -299)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 1, -299)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 186, 1, -244)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 279, 1, -126)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 279, 1, 107)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 1, 303)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175, 1, 303)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175, 1, 530)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -439, 1, 530)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -576, 1, 422)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -665, 1, 241)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -665, 1, -26)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -579, 1, -212)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -460, 1, -407)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -209, 1, -474)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68, 1, -474)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 373, 1, -398)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 470, 1, -266)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 594, 1, 41)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 594, 1, 319)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 387, 1, 421)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77, 1, 530)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -444, 1, 141)
+size = Vector3(1, 20, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -317, 1, 303)
+size = Vector3(1, 20, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Ground")
+libraries = {
+"": SubResource("AnimationLibrary_hb7l3")
+}
+autoplay = "moving_ground"
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_ksmfk")
+script = ExtResource("1_6mdq7")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.928831, 0, -0.370494, 0, 0.999992, 0, 0.370495, 0, 0.92883, -439.543, 0, -295.41)
+
+[node name="Train" type="Node3D" parent="."]
+transform = Transform3D(0.999996, 0, 2.98023e-07, 0, 0.999992, 0, 2.98023e-07, 0, 0.999996, 0, 0, 0)
+
+[node name="Nancy" parent="Train" instance=ExtResource("3_ly6mx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.5447)
 
-[node name="Cars" type="Node3D" parent="."]
+[node name="Puzzles" type="Node3D" parent="Train"]
 
-[node name="FirstCar" parent="Cars" instance=ExtResource("1_qw5lp")]
+[node name="FirstCar" parent="Train/Puzzles" instance=ExtResource("1_qw5lp")]
 
-[node name="Puzzle" parent="Cars/FirstCar" index="1" node_paths=PackedStringArray("corridor")]
-corridor = NodePath("../../../Train/Car/NextCorridor")
+[node name="Puzzle" parent="Train/Puzzles/FirstCar" index="1" node_paths=PackedStringArray("corridor")]
+corridor = NodePath("../../../TrainCars/Car/NextCorridor")
 
-[node name="SecondCar" parent="Cars" instance=ExtResource("2_ip0au")]
+[node name="SecondCar" parent="Train/Puzzles" instance=ExtResource("2_ip0au")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28.925)
 
-[node name="Puzzle" parent="Cars/SecondCar" index="0" node_paths=PackedStringArray("corridor")]
-corridor = NodePath("../../../Train/Car/Car2/NextCorridor")
+[node name="Puzzle" parent="Train/Puzzles/SecondCar" index="0" node_paths=PackedStringArray("corridor")]
+corridor = NodePath("../../../TrainCars/Car/Car2/NextCorridor")
 
-[node name="ThirdCar" parent="Cars" instance=ExtResource("5_j87cf")]
+[node name="ThirdCar" parent="Train/Puzzles" instance=ExtResource("5_j87cf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -57.85)
 
-[node name="Puzzle" parent="Cars/ThirdCar" index="1" node_paths=PackedStringArray("next_corridor")]
-next_corridor = NodePath("../../../Train/Car/Car3/NextCorridor")
+[node name="Nightstand" parent="Train/Puzzles/ThirdCar/Rooms/Room0" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Train" parent="." instance=ExtResource("6_l68yl")]
+[node name="Nightstand2" parent="Train/Puzzles/ThirdCar/Rooms/Room0" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="OmniLight3D" parent="Train/Car/Car3/Lights" index="0"]
+[node name="Nightstand" parent="Train/Puzzles/ThirdCar/Rooms/Room1" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Nightstand2" parent="Train/Puzzles/ThirdCar/Rooms/Room1" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Nightstand" parent="Train/Puzzles/ThirdCar/Rooms/Room2" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Nightstand2" parent="Train/Puzzles/ThirdCar/Rooms/Room2" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Nightstand" parent="Train/Puzzles/ThirdCar/Rooms/Room3" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Nightstand2" parent="Train/Puzzles/ThirdCar/Rooms/Room3" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Nightstand" parent="Train/Puzzles/ThirdCar/Rooms/Room4" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Nightstand2" parent="Train/Puzzles/ThirdCar/Rooms/Room4" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Puzzle" parent="Train/Puzzles/ThirdCar" index="1" node_paths=PackedStringArray("next_corridor")]
+next_corridor = NodePath("../../../TrainCars/Car/Car3/NextCorridor")
+
+[node name="TrainCars" parent="Train" instance=ExtResource("6_l68yl")]
+
+[node name="OmniLight3D" parent="Train/TrainCars/Car/Car3/Lights" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -9)
 
-[node name="OmniLight3D2" parent="Train/Car/Car3/Lights" index="1"]
+[node name="OmniLight3D2" parent="Train/TrainCars/Car/Car3/Lights" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 8.39018)
 
-[node name="OmniLight3D4" type="OmniLight3D" parent="Train/Car/Car3/Lights" index="2"]
+[node name="OmniLight3D4" type="OmniLight3D" parent="Train/TrainCars/Car/Car3/Lights" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 5.39018)
 light_color = Color(1, 1, 0.803922, 1)
 light_energy = 5.0
 shadow_enabled = true
 
-[node name="OmniLight3D5" type="OmniLight3D" parent="Train/Car/Car3/Lights" index="3"]
+[node name="OmniLight3D5" type="OmniLight3D" parent="Train/TrainCars/Car/Car3/Lights" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2.39018)
 light_color = Color(1, 1, 0.803922, 1)
 light_energy = 5.0
 shadow_enabled = true
 
-[node name="OmniLight3D6" type="OmniLight3D" parent="Train/Car/Car3/Lights" index="4"]
+[node name="OmniLight3D6" type="OmniLight3D" parent="Train/TrainCars/Car/Car3/Lights" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1.60982)
 light_color = Color(1, 1, 0.803922, 1)
 light_energy = 5.0
 shadow_enabled = true
 
-[node name="OmniLight3D3" parent="Train/Car/Car3/Lights" index="5"]
+[node name="OmniLight3D3" parent="Train/TrainCars/Car/Car3/Lights" index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4.33182)
 
-[node name="Ground" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -55)
-size = Vector3(200, 1, 200)
-material = SubResource("StandardMaterial3D_hfpob")
-
-[editable path="Cars/FirstCar"]
-[editable path="Cars/SecondCar"]
-[editable path="Cars/SecondCar/Puzzle/Food/Coffee"]
-[editable path="Cars/SecondCar/Puzzle/Food/Frappe"]
-[editable path="Cars/SecondCar/Puzzle/Food/Tea"]
-[editable path="Cars/ThirdCar"]
-[editable path="Train"]
+[editable path="Train/Puzzles/FirstCar"]
+[editable path="Train/Puzzles/SecondCar"]
+[editable path="Train/Puzzles/SecondCar/Puzzle/Food/Coffee"]
+[editable path="Train/Puzzles/SecondCar/Puzzle/Food/Frappe"]
+[editable path="Train/Puzzles/SecondCar/Puzzle/Food/Tea"]
+[editable path="Train/Puzzles/ThirdCar"]
+[editable path="Train/TrainCars"]

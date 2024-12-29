@@ -9,7 +9,7 @@ class_name Nancy
 @onready var smooth_camera_fov = smooth_camera.fov
 #@onready var inventory_ui: Node3D = $CanvasLayer/InventoryUI
 
-const SPEED = 8.0
+const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 var mouse_motion = Vector2.ZERO
 const step_travel_distance = 100
