@@ -63,7 +63,7 @@ _data = {
 
 [sub_resource type="Curve3D" id="Curve3D_ksmfk"]
 _data = {
-"points": PackedVector3Array(-107.1, 0, 268.5, 107.1, 0, -268.5, -439.543, 0, -295.41, -129, 0, -128, 129, 0, 128, 423.9, 0, -287, 105.6, 0, -145.1, -105.6, 0, 145.1, 425.4, 0, 238.2, 198.2, 0, 141.9, -198.2, 0, -141.9, -383, 0, 320, -122.6, 0, 278.9, 122.6, 0, -278.9, -439.543, 0, -295.41),
+"points": PackedVector3Array(-107.1, 0, 268.5, 107.1, 0, -268.5, -439.543, 0, -295.41, -129, 0, -128, 129, 0, 128, 423.9, -67, -287, 105.6, 0, -145.1, -105.6, 0, 145.1, 425.4, -121, 238.2, 198.2, 0, 141.9, -198.2, 0, -141.9, -383, 0, 320, -122.6, 0, 278.9, 122.6, 0, -278.9, -439.543, 0, -295.41),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
@@ -206,7 +206,7 @@ script = ExtResource("1_6mdq7")
 transform = Transform3D(0.928831, 0, -0.370494, 0, 0.999992, 0, 0.370495, 0, 0.92883, -439.543, 0, -295.41)
 
 [node name="Train" type="Node3D" parent="."]
-transform = Transform3D(0.999996, 0, 2.98023e-07, 0, 0.999992, 0, 2.98023e-07, 0, 0.999996, 0, 0, 0)
+transform = Transform3D(0.999996, 0, 6.55651e-07, 0, 0.999992, 0, 2.08616e-07, 0, 0.999996, 499, 0, -0.000152588)
 
 [node name="Nancy" parent="Train" instance=ExtResource("3_ly6mx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.5447)
@@ -225,37 +225,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28.925)
 corridor = NodePath("../../../TrainCars/Car/Car2/NextCorridor")
 
 [node name="ThirdCar" parent="Train/Puzzles" instance=ExtResource("5_j87cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -57.85)
-
-[node name="Nightstand" parent="Train/Puzzles/ThirdCar/Rooms/Room0" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="Nightstand2" parent="Train/Puzzles/ThirdCar/Rooms/Room0" index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="Nightstand" parent="Train/Puzzles/ThirdCar/Rooms/Room1" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="Nightstand2" parent="Train/Puzzles/ThirdCar/Rooms/Room1" index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="Nightstand" parent="Train/Puzzles/ThirdCar/Rooms/Room2" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="Nightstand2" parent="Train/Puzzles/ThirdCar/Rooms/Room2" index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="Nightstand" parent="Train/Puzzles/ThirdCar/Rooms/Room3" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="Nightstand2" parent="Train/Puzzles/ThirdCar/Rooms/Room3" index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="Nightstand" parent="Train/Puzzles/ThirdCar/Rooms/Room4" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="Nightstand2" parent="Train/Puzzles/ThirdCar/Rooms/Room4" index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -57.6)
 
 [node name="Puzzle" parent="Train/Puzzles/ThirdCar" index="1" node_paths=PackedStringArray("next_corridor")]
 next_corridor = NodePath("../../../TrainCars/Car/Car3/NextCorridor")
